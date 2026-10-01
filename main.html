@@ -1,14 +1,185 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        
-        <title>Page Title</title>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyntax</title>
+      <link rel="stylesheet" href="./main.css">
+    <script src="./main.js " defer></script>
+</head>
+<body>
+   <header>
+        <nav>
+            <a href="./main.html" class="logo-container">
+                <img src="./img/image.png" alt="Logo da Cyntax" class="logo"></img>
+                <h1 class="logo-text">Cyn<span>tax</span></h1>
+            </a>
+            <div class="links">
+                <a href="./modulo.html"><p>Módulos</p></a>
+                <a href="./jogos.html"><p>Jogos</p></a>
+                <a href="./questoes.html"><p>Questões</p></a>
+                <a href="./ranking.html"><p>Ranking</p></a>
+                <a href="./sobre.html"><p>Sobre</p></a>
+            </div>
 
-    </head>
-    <body>
+            <div class="busca">
+                <input type="text" id="campoBusca" placeholder="Pesquisar...">
+                <button type="button" id="botaoBusca"><ion-icon name="search-outline"></ion-icon></button>
+            </div>
 
-        <h1>This is a Heading</h1>
-        <p>This is a paragraph.</p>
+            <div class="identificacao">
+                <a href="#" class="entrar">Entrar</a>
+                <a href="./cadastro.html" class="cadastro">Cadastrar</a>
+            </div>
+        </nav>
+    </header>
 
-    </body>
+    <div class="container">
+        <span class="descricao">Plataforma de estudo de física</span>
+        <h1 class="titulopt1">Seu futuro em física <span>começa aqui!</span></h1>
+        <p class="paragrafo">Estude teoria, pratique com simuladores, jogue, resolva questões do ENEM e acompanhe sua evolução. Tudo em um só lugar, de forma interativa, dinâmica e focada no que realmente importa: sua aprovação.</p>
+    
+        <div class="buttons">
+            <a href="#" class="btnPrinc"> <ion-icon name="rocket-sharp"></ion-icon> Comece agora!</a>
+            <a href="#" class="btnSec"> <ion-icon name="play-outline"></ion-icon> Conheça a plataforma</a>
+        </div>
+
+        <div class="img-anime">
+            <img src="./img/Studying-bro.png" alt="Estudante de física">
+        </div>
+    </div>
+
+    <section class="beneficios">
+        <div class="cards">
+            <div class="card">
+                <ion-icon name="book" id="book"></ion-icon>
+                <h4>Teoria Completa</h4>
+                <p>Conteúdo organizado, do 
+                   básico ao avançado, com
+                   linguagem simples e objetiva.
+                </p>
+            </div>
+
+            <div class="card">
+                <ion-icon name="game-controller" id="game"></ion-icon>
+                <h4>Aprendizado Interativo</h4>
+                <p>Simuladores, mini-games
+                    e ferramentas dinâmicas
+                    para você entender na prática.
+                </p>
+            </div>
+
+            <div class="card">
+                <ion-icon name="analytics" id="analytics"></ion-icon>
+                <h4>Questões do ENEM</h4>
+                <p>Exercícios resolvidos e comentados,
+                    com foco no estilo e no conteúdo
+                    do vestibular.
+                </p>
+            </div>
+
+            <div class="card">
+                <ion-icon name="trophy" id="trophy"></ion-icon>
+                <h4>Ranking e recompensas</h4>
+                <p>Evolua, ganhe pontos, 
+                    suba no ranking e desbloqueie 
+                    presonalizações exclusivas.
+                </p>
+            </div>
+            
+            <div class="card">
+                <ion-icon name="shield-half" id="shield"></ion-icon>
+                <h4>Segurança e privacidade</h4>
+                <p>Seus dados são protegidos
+                    em conformidade com a LGPD.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="explicacao">
+
+    <div class="visual">
+        <img src="./img/simulacao.png" alt="Prévia de uma simulação do Cyntax">
+    </div>
+
+    <div class="funciona">
+
+        <span>Como funciona</span>
+
+        <h2 class="part-1">
+            Do conteúdo à prática,
+            <span class="azul">sem complicação.</span>
+        </h2>
+
+        <p>
+            Estude no seu ritmo, com uma jornada bem estruturada,
+            que te leva do básico ao avançado, com recursos interativos
+            para fixar o conteúdo e testar seus conhecimentos.
+        </p>
+
+        <div class="lista">
+
+            <div class="etapa">
+                <h4>Estude</h4>
+                <p>os conceitos</p>
+            </div>
+
+            <div class="etapa">
+                <h4>Pratique</h4>
+                <p>com simulações e jogos</p>
+            </div>
+
+            <div class="etapa">
+                <h4>Resolva</h4>
+                <p>questões do ENEM</p>
+            </div>
+
+            <div class="etapa">
+                <h4>Acompanhe</h4>
+                <p>seu progresso e suba no ranking</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="quadro-azul">
+        <div class="estatistica">
+            <ion-icon name="school-outline"></ion-icon>
+            <div>
+                <strong>+1000</strong>
+                <p>estudantes ativos</p>
+            </div>
+        </div>
+
+
+        <div class="estatistica">
+            <ion-icon name="star"></ion-icon>
+            <div>
+                <strong>+8</strong>
+                <p>módulos disponíveis</p>
+            </div>
+        </div>
+        <div class="estatistica">
+            <ion-icon name="trophy"></ion-icon>
+            <div>
+                <strong>+10 mil</strong>
+                <p>questões no banco</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <footer>
+        <h1 class="titulo-rodape">
+            Explore os <span>módulos</span>
+        </h1>
+
+        <p>Cada assunto é um passo a mais na sua jornada de aprendizado.</p>
+
+        <a href="#" id="rodape"> ver todos os módulos </a> <ion-icon name="arrow-forward-outline"></ion-icon>
+    </footer>
+
+    <script  type = "module"  src = " https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js " ></script> 
+    <script nomodule src = " https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js " ></script>  
+</body>
 </html>
