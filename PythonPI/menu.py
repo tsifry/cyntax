@@ -1,9 +1,11 @@
-from listar import listar
-from adicionar import adicionar
+from conexao import *
+from read import *
+from create import *
 from editar import editar
 from deletar import deletar
 
 def menu():
+    conexao = conecta()
     while True:
         print('-' * 30)
         print("Sistema Cyntax".center(30))
@@ -19,9 +21,9 @@ def menu():
 
         match resp:
             case 1:
-                listar()
+                read(conexao)
             case 2:
-                adicionar()
+                create(conexao)
             case 3:
                 editar()
             case 4:
