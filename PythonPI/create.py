@@ -22,4 +22,3 @@ def create(conexao):
     conexao.commit()
 
     cursor.close()
-    conexao.close()

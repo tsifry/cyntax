@@ -11,4 +11,3 @@ def read(conexao):
         pass
 
     cursor.close()
-    conexao.close()

@@ -15,9 +15,11 @@ def menu():
         "[3] Editar Aluno\n[4] Deletar Aluno\n[5] Sair")
 
         while True:
-            resp = int(input())
+            resp = input(' ')
             if resp.isnumeric():
+                resp = int(resp)
                 break
+            print('Opção inválida! Digite um número existente no menu.')
 
         match resp:
             case 1:
@@ -25,8 +27,10 @@ def menu():
             case 2:
                 create(conexao)
             case 3:
-                editar()
+                editar(conexao)
             case 4:
-                deletar()
+                deletar(conexao)
             case 5:
+                conexao.close()
+                print('Encerrando o sistema. . .')
                 break
