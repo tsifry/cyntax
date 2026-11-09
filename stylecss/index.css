@@ -1,51 +1,61 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 a{
     text-decoration: none;
     color: white;
 }
 
 :root {
-   /* Fundos */
---cor-fundo-escuro: #061126;
---cor-fundo-hero: #0B1D43;
---cor-fundo-hero-final: #162E68;
---cor-fundo-cards: #0B1B3B;
---cor-card: #122650;
---cor-borda: #284476;
---cor-fundo-claro: #F5F8FE;
---cor-fundo-claro-2: #EDF3FF;
---cor-fundo-privacidade: #E8F0FF;
+    /* Fundos */
+    --cor-fundo-escuro: #061126;
+    --cor-fundo-hero: #0B1D43;
+    --cor-fundo-hero-final: #162E68;
+    --cor-fundo-cards: #0B1B3B;
+    --cor-card: #122650;
+    --cor-borda: #284476;
+    --cor-fundo-claro: #F5F8FE;
+    --cor-fundo-claro-2: #EDF3FF;
+    --cor-fundo-privacidade: #E8F0FF;
 
-/* Azul / destaques */
---cor-azul: #526EF8;
---cor-azul-claro: #4E8CFF;
---cor-azul-destaque: #3C7CFA;
---cor-ciano: #38BDF8;
---cor-roxo: #7C6CFF;
+    /* Azul / destaques */
+    --cor-azul: #526EF8;
+    --cor-azul-claro: #4E8CFF;
+    --cor-azul-destaque: #3C7CFA;
+    --cor-ciano: #38BDF8;
+    --cor-roxo: #7C6CFF;
 
-/* Fontes */
---cor-fonte-branca: #FFFFFF;
---cor-fonte-clara: #D7E2F6;
---cor-fonte-suave: #C8D3E8;
---cor-fonte-cinza: #6D7FA6;
---cor-fonte-escura: #07154A;
---cor-fonte-secundaria: #52627F;
+    /* Fontes */
+    --cor-fonte-branca: #FFFFFF;
+    --cor-fonte-clara: #D7E2F6;
+    --cor-fonte-suave: #C8D3E8;
+    --cor-fonte-cinza: #6D7FA6;
+    --cor-fonte-escura: #07154A;
+    --cor-fonte-secundaria: #52627F;
 
-/* Destaques dos cards */
---cor-destaque-azul: #4F6CFF;
---cor-destaque-verde: #18B97D;
---cor-destaque-amarelo: #FFB52E;
---cor-destaque-roxo: #8B4CFF;
---cor-destaque-ciano: #20B8F2;
+    /* Destaques dos cards */
+    --cor-destaque-azul: #4F6CFF;
+    --cor-destaque-verde: #18B97D;
+    --cor-destaque-amarelo: #FFB52E;
+    --cor-destaque-roxo: #8B4CFF;
+    --cor-destaque-ciano: #20B8F2;
 
-/* Outros */
---cor-linha-jornada: #304A7D;
---cor-fundo-simulacao: #0A1937;
---cor-fundo-simulacao-2: #071329;
---cor-fonte-simulacao: #BFD0F5;
+    /* Outros */
+    --cor-linha-jornada: #304A7D;
+    --cor-fundo-simulacao: #0A1937;
+    --cor-fundo-simulacao-2: #071329;
+    --cor-fonte-simulacao: #BFD0F5;
 
-/* Gradientes */
---gradiente-titulo: linear-gradient(90deg, #526EF8, #4E7DF8);
---gradiente-hero: linear-gradient(135deg, #050C20, #0B1D43, #162E68);
+    /* Gradientes */
+    --gradiente-titulo: linear-gradient(90deg, #526EF8, #4E7DF8);
+    --gradiente-hero: linear-gradient(135deg, #050C20, #0B1D43, #162E68);
+}
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden; 
 }
 
 body {
