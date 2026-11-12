@@ -22,7 +22,7 @@ TABELAS = {
 
     "Problemas": [
                 ("ID", int, "AUTO"),
-                ("ID_MODULO", int, "FK"),#fk
+                ("ID_MODULO", int, "NOT_NULL"),#fk
                 ("DESCRICAO", str, "NOT_NULL")
                 #("RESPOSTA", , )
             ],
@@ -35,16 +35,16 @@ TABELAS = {
     ],
 
     "ProgressoProblemas": [
-            ("ID_PROBLEMA", int, "FK"),
-            ("ID_USUARIO", int, "FK"),
+            ("ID_PROBLEMA", int, "NOT_NULL"),#fk
+            ("ID_USUARIO", int, "NOT_NULL"),#fk
             ("TENT_TOTAIS", int, "NOT_NULL"),
             ("FINALIZADO", bool, "DEFAULT"),
             ("TEMPO_GASTO", int, "DEFAULT")
         ],
 
     "ProgressoJogos": [
-                ("ID_JOGO", int, "FK"),
-                ("ID_USUARIO", int, "FK"),
+                ("ID_JOGO", int, "NOT_NULL"),#fk
+                ("ID_USUARIO", int, "NOT_NULL"),#fk
                 ("JOGADOS", int, "DEFAULT"),
                 ("HIGHSCORE", int, "DEFAULT"),
                 ("TEMPO_JOGADO", int, "DEFAULT")
@@ -52,7 +52,7 @@ TABELAS = {
 
     "PontuacaoHistorico": [
                     ("ID", int, "AUTO"),
-                    ("ID_USUARIO", int, "FK"),
+                    ("ID_USUARIO", int, "NOT_NULL"),#fk
                     ("TIPO_ATIVIDADE", str, "NOT_NULL"),
                     ("ID_ATIVIDADE", int, "NOT_NULL"),
                     ("PONTUACAO", int, "NOT_NULL"),
@@ -61,7 +61,7 @@ TABELAS = {
                 ],
 
     "Ranking": [
-                    ("ID_USUARIO", int, "FK"),
+                    ("ID_USUARIO", int, "NOT_NULL"),#fk
                     ("COLOCACAO", int, "NULL"),
                     ("PONTUACAO", int, "DEFAULT"),
                     ("TEMPORADA", int, "NOT_NULL")

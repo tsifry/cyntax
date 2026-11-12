@@ -25,7 +25,7 @@ def escolha(qtdOpcoes):
 def read(conexao, tabela):
     colunas = None
     filtro = None
-    print("Por qual campo deseja realizar a consulta?")
+    print("Digite o campo: ")
     match tabela:
         case "Usuarios":
             print("[1] ID\n[2] EMAIL")
@@ -36,13 +36,15 @@ def read(conexao, tabela):
                 filtro = {"EMAIL": input("Digite o EMAIL: ")}
             
             resultados = select(conexao, tabela, colunas, filtro)
-            print(resultados)
+            exibe(resultados)
 
         case "Autenticacao":#na teoria eh isso. tem que ver se o return vai dar de fato 1 numero
             email = input('Digite o email para consulta: ')
-            idUsuario = select(conexao, "Usuarios", ["ID"], {"EMAIL": {email}})
-            sql = f"SELECT hash from `Autenticacao WHERE ID_USUARIO = {idUsuario}"
-            executa(conexao, sql, [idUsuario])
+            idUsuario = select(conexao, "Usuarios", filtro={"EMAIL": email})
+
+            select(conexao, tabela, filtro={"ID_USUARIO": idUsuario[0]['ID']})
+            #sql = f"SELECT SHA2(SENHA, 256) AS hash_SENHA FROM `Autenticacao` WHERE ID_USUARIO = %s"
+            #resultado = executa(conexao, sql, (idUsuario[0]['ID'],))
         case "Modulos":
             print("[1] DIFICULDADE\n[2] NOME\n[3] ASSINANTE")
             escolhida = escolha(3)
@@ -97,7 +99,7 @@ def read(conexao, tabela):
             
             select(conexao, tabela, colunas, filtro)
         case "PontuacaoHistorico":
-            filtro = {"ID_USUARIO": int(input("Digite o ID do usuario para a busca"))}
+            filtro = {"ID_USUARIO": int(input("Digite o ID do usuario: "))}
             select(conexao, tabela, colunas, filtro)
         case "Ranking":
             print("[1] TEMPORADA\n[2] ID_USUARIO + TEMPORADA")
@@ -166,11 +168,11 @@ def select(conexao, tabela, colunas = None, filtro=None):
         sql += " WHERE " + " AND ".join(condicoes)
 
     if tabela == "Ranking":
-        sql += f" ORDER BY `TEMPORADA` `DESC`"
+        sql += f" ORDER BY `TEMPORADA` DESC"
 
         sql += " LIMIT %s"
         while True:
-            limit = int(input())
+            limit = int(input('LIMIT: '))
             if isinstance(limit, int):
                 break
         valores.append(limit)
@@ -181,7 +183,7 @@ def select(conexao, tabela, colunas = None, filtro=None):
 
 #executa o comando select
 def executa(conexao, sql, valores):
-    cursor = conexao.cursor(dictionary=True)
+    cursor = conexao.cursor(dictionary = True)
 
     try:
         cursor.execute(sql, tuple(valores))
@@ -195,3 +197,9 @@ def executa(conexao, sql, valores):
 
     finally:
         cursor.close()
+
+def exibe(resultado):
+    for chave, valor in resultado[0].items():
+        print(f"{chave}: {valor}")
+
+    input()

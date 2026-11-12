@@ -1,4 +1,5 @@
 from tabelas import TABELAS
+import hashlib
 
 #cria novo registro na tabela.
 def create(conexao, tabela):
@@ -19,6 +20,9 @@ def create(conexao, tabela):
             while valor == "":
                 print('Este campo é obrigatório!')
                 valor = input(f'informe {campo}: ')
+
+            if campo == "SENHA":
+                valor = hashlib.sha256(valor.encode('utf-8')).hexdigest()
 
             dados[campo] = valor
 
@@ -57,7 +61,7 @@ def create(conexao, tabela):
         """
 
     valores = (dados[campo] for campo in campos)
-     
+     #talvez colocar um try except aqui
     cursor = conexao.cursor()
     
     cursor.execute(sql, tuple(valores))
