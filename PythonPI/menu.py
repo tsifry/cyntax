@@ -3,8 +3,8 @@ from criatabelas import criatabelas
 from tabelas import TABELAS
 from read import read
 from create import create
-#from editar import editar
-#from deletar import deletar
+from editar import editar
+from deletar import deletar
 
 def menu():
     conexao = conecta()
@@ -31,9 +31,11 @@ def menu():
                 tabela = list(TABELAS.keys())[escolheTabela() - 1]
                 create(conexao, tabela)
             case 3:
-                editar(conexao)
+                tabela = list(TABELAS.keys())[escolheTabela() - 1]
+                editar(conexao, tabela)
             case 4:
-                deletar(conexao)
+                tabela = list(TABELAS.keys())[escolheTabela() - 1]
+                deletar(conexao, tabela)
             case 5:
                 conexao.close()
                 print('Encerrando o sistema. . .')
