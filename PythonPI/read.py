@@ -35,16 +35,15 @@ def read(conexao, tabela):
             else:
                 filtro = {"EMAIL": input("Digite o EMAIL: ")}
             
-            resultados = select(conexao, tabela, colunas, filtro)
-            exibe(resultados)
+            resultado = consulta(conexao, tabela, colunas, filtro)
+            exibe(resultado)
 
         case "Autenticacao":#na teoria eh isso. tem que ver se o return vai dar de fato 1 numero
             email = input('Digite o email para consulta: ')
-            idUsuario = select(conexao, "Usuarios", filtro={"EMAIL": email})
+            idUsuario = consulta(conexao, "Usuarios", filtro={"EMAIL": email})
 
-            select(conexao, tabela, filtro={"ID_USUARIO": idUsuario[0]['ID']})
-            #sql = f"SELECT SHA2(SENHA, 256) AS hash_SENHA FROM `Autenticacao` WHERE ID_USUARIO = %s"
-            #resultado = executa(conexao, sql, (idUsuario[0]['ID'],))
+            resultado = consulta(conexao, tabela, filtro={"ID_USUARIO": idUsuario[0]['ID']})
+            exibe(resultado)
         case "Modulos":
             print("[1] DIFICULDADE\n[2] NOME\n[3] ASSINANTE")
             escolhida = escolha(3)
@@ -59,7 +58,8 @@ def read(conexao, tabela):
                     filtro = {"ASSINANTE": True}
                 else:
                     filtro = {"ASSINANTE": False}
-            select(conexao, tabela, colunas, filtro)
+            resultado = consulta(conexao, tabela, colunas, filtro)
+            exibe(resultado)
         case "Problemas":#AQUI TERIA O RESPOSTA TAMBEM
             print("[1] ID\n[2] ID_MODULO")
             escolhida = escolha(2)
@@ -68,7 +68,8 @@ def read(conexao, tabela):
             else:
                 filtro = {"ID_MODULO": int(input("Digite o ID_MODULO: "))}
             
-            select(conexao, tabela, colunas, filtro)
+            resultado = consulta(conexao, tabela, colunas, filtro)
+            exibe(resultado)
         case "Jogos":
             print("[1] ID\n[2] ID_MODULO")
             escolhida = escolha(2)
@@ -77,7 +78,8 @@ def read(conexao, tabela):
             else:
                 filtro = {"ID_MODULO": int(input("Digite o ID_MODULO: "))}
             
-            select(conexao, tabela, colunas, filtro)
+            resultado = consulta(conexao, tabela, colunas, filtro)
+            exibe(resultado)
         case "ProgressoProblemas":
             print("[1] ID_USUARIO\n[2] ID_USUARIO + ID_PROBLEMA")
             escolhida = escolha(2)
@@ -87,7 +89,8 @@ def read(conexao, tabela):
                 filtro = {"ID_USUARIO": int(input("Digite o ID_USUARIO: ")),
                            "ID_PROBLEMA": int(input("Digite o ID_PROBLEMA: "))}
                 
-            select(conexao, tabela, colunas, filtro)
+            resultado = consulta(conexao, tabela, colunas, filtro)
+            exibe(resultado)
         case "ProgressoJogos":
             print("[1] ID_USUARIO\n[2] ID_USUARIO + ID_JOGO")
             escolhida = escolha(2)
@@ -97,10 +100,12 @@ def read(conexao, tabela):
                 filtro = {"ID_USUARIO": int(input("Digite o ID_USUARIO: ")),
                            "ID_JOGO": int(input("Digite o ID_JOGO: "))}
             
-            select(conexao, tabela, colunas, filtro)
+            resultado = consulta(conexao, tabela, colunas, filtro)
+            exibe(resultado)
         case "PontuacaoHistorico":
             filtro = {"ID_USUARIO": int(input("Digite o ID do usuario: "))}
-            select(conexao, tabela, colunas, filtro)
+            resultado = consulta(conexao, tabela, colunas, filtro)
+            exibe(resultado)
         case "Ranking":
             print("[1] TEMPORADA\n[2] ID_USUARIO + TEMPORADA")
             escolhida = escolha(2)
@@ -110,10 +115,11 @@ def read(conexao, tabela):
                 filtro = {"ID_USUARIO": int(input("Digite o ID_USUARIO: ")),
                           "TEMPORADA": int(input("Digite a TEMPORADA: "))}
             
-            select(conexao, tabela, colunas, filtro)
+            resultado = consulta(conexao, tabela, colunas, filtro)
+            exibe(resultado)
 
 #monta o comando select
-def select(conexao, tabela, colunas = None, filtro=None):
+def consulta(conexao, tabela, colunas = None, filtro=None):
     if tabela not in TABELAS:
         print('tabela não encontrada!')
         return
@@ -177,15 +183,8 @@ def select(conexao, tabela, colunas = None, filtro=None):
                 break
         valores.append(limit)
 
-    resultados = executa(conexao, sql, valores)
-
-    return resultados
-
-#executa o comando select
-def executa(conexao, sql, valores):
-    cursor = conexao.cursor(dictionary = True)
-
     try:
+        cursor = conexao.cursor(dictionary = True)
         cursor.execute(sql, tuple(valores))
 
         resultados = cursor.fetchall()
@@ -194,12 +193,58 @@ def executa(conexao, sql, valores):
     except Exception as erro:
         print(f"Ocorreu o erro: {erro}")
         input()
+        return []
 
     finally:
         cursor.close()
+        conexao.close() 
 
 def exibe(resultado):
-    for chave, valor in resultado[0].items():
-        print(f"{chave}: {valor}")
+    print('-' * 120)
+    tamanho = calctamanho(resultado)
+    for indice, chave in enumerate(resultado[0].keys()):
+        print(f"{chave:^{tamanho[indice]}}|", end='')
+    print()
+
+    print('-' * 120)
+    for i in range(len(resultado)):
+        for indice, valor in enumerate(resultado[i].values()):
+            print(f"{str(valor):^{tamanho[indice]}}|", end='')
+        print()
+    print('-' * 120)
 
     input()
+
+def calctamanho(resultado):
+    tamanho = []
+    chaves = []
+    valores = []
+    #pega o tamanho de todas as chaves
+    for chave in resultado[0].keys():
+        chaves.append(len(chave) + 2)
+
+    #pega o tamanho de todos os valores
+    for i in range(len(resultado)):
+        valor = []
+        for value in resultado[i].values():
+            valor.append(len(str(value)))
+
+        valores.append(valor)
+
+    valoresfinais = []
+
+    #pega o maior dos tamanhos dos valores de cada coluna da tabela
+    for v in range(len(valores) - 1):
+        for c in range(len(chaves)):
+            maior = max(valores[v][c], valores[v+1][c])
+            valoresfinais.append(maior + 2)
+
+    #caso só tenha um registro na tabela
+    if len(valoresfinais) == 0:
+        valoresfinais = valores[0][:]
+
+    #monta os tamanho finais que serão usados em cada coluna
+    for i in range(len(chaves)):
+        tamanho.append(max(chaves[i], valoresfinais[i]))
+
+    return tamanho

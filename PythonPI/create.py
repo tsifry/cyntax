@@ -1,8 +1,11 @@
 from tabelas import TABELAS
 import hashlib
+from geracsv import geraCsv
+from consultacsv import consultaCsv
+from mysql.connector import Error
 
 #cria novo registro na tabela.
-def create(conexao, tabela):
+def inserir(conexao, tabela):
     if tabela not in TABELAS:
         print('Tabela não cadastrada.')
         input('[ENTER] para continuar')
@@ -60,11 +63,21 @@ def create(conexao, tabela):
         VALUES({recebevalores})
         """
 
-    valores = (dados[campo] for campo in campos)
-     #talvez colocar um try except aqui
-    cursor = conexao.cursor()
+    geraCsv(tabela, dados)
+
+    valores = consultaCsv(tabela)
+
+    try:
+        cursor = conexao.cursor()
     
-    cursor.execute(sql, tuple(valores))
-    conexao.commit()
+        cursor.execute(sql, tuple(valores))
+        conexao.commit()
+        print('produto cadastrado com sucesso!')
+        input()
+    except Error as erro:
+        print(f'Ocorreu o erro: {erro}')
+        input()
+        return None
 
     cursor.close()
+    conexao.close()
