@@ -80,4 +80,3 @@ def inserir(conexao, tabela):
         return None
 
     cursor.close()
-    conexao.close()
