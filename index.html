@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cyntax</title>
-      <link rel="stylesheet" href="./main.css">
-    <script src="./main.js " defer></script>
+    <link rel="stylesheet" href="./stylecss/index.css">
+    <script src="./javs.js/index.js " defer></script>
+    <link rel="stylesheet" href="./stylecss/acessibilidade.css">
 </head>
 <body>
    <header>
@@ -181,5 +182,22 @@
 
     <script  type = "module"  src = " https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js " ></script> 
     <script nomodule src = " https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js " ></script>  
+
+    <button id="btnAcess" aria-label="Abrir menu de acessibilidade">
+    <ion-icon name="accessibility"></ion-icon>
+</button>
+
+<div id="painelAcess" hidden>
+    <h3>Acessibilidade</h3>
+    <button id="fonteMais">A+ Aumentar fonte</button>
+    <button id="fonteMenos">A- Diminuir fonte</button>
+    <button id="lerPagina">🔊 Ler página em áudio</button>
+    <button id="contraste">Alto contraste</button>
+    <button id="cinza">Escala de cinza</button>
+    <button id="daltonismo">Modo daltonismo</button>
+    <button id="resetar">Restaurar padrão</button>
+</div>
+
+<script src="./javs.js/acessibilidade.js"></script>
 </body>
 </html>

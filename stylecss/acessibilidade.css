@@ -1,0 +1,62 @@
+#btnAcess {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 56px;
+    height: 56px;
+    border: none;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #526EF8, #38BDF8);
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    z-index: 2000;
+    transition: 0.3s;
+}
+
+#btnAcess:hover {
+    opacity: 0.7;
+}
+
+#painelAcess {
+    position: fixed;
+    bottom: 94px;
+    right: 24px;
+    width: 230px;
+    padding: 16px;
+    background-color: #061126;
+    border: 1px solid #284476;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#painelAcess[hidden] {
+    display: none;
+}
+
+#painelAcess h3 {
+    margin: 0 0 6px;
+    color: white;
+    font-size: 16px;
+}
+
+#painelAcess button {
+    padding: 10px;
+    border: 1px solid #284476;
+    border-radius: 10px;
+    background-color: #122650;
+    color: white;
+    font-size: 13px;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#painelAcess button:hover {
+    background-color: #526EF8;
+}
