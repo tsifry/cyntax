@@ -1,8 +1,13 @@
+from conexao import conecta
+
 # O editar problemas acontece usando chaves compostas, incrementando tentativas e tempo gasto.
 import hashlib
 
 def editar(conexao, tabela):
+    if not conexao.is_connected():
+        conexao = conecta()
     cursor = conexao.cursor()
+
     try:
         if tabela == 'Usuarios':
             id_usuario = int(input('Digite o ID do usuário que deseja editar: '))

@@ -197,7 +197,6 @@ def consulta(conexao, tabela, colunas = None, filtro=None):
 
     finally:
         cursor.close()
-        conexao.close() 
 
 def exibe(resultado):
     print('-' * 120)
