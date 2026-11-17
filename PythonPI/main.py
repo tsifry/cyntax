@@ -41,7 +41,8 @@ def main():
                 print('Encerrando o sistema. . .')
                 break
 
-def escolheTabela():
+#valida se o que o usuario está fornecendo é um número inteiro e se corresponde ao número de uma tabela.
+def escolheTabela() -> int:
     while True:
         print("Escoha a tabela: ")
         for i, tabela in enumerate(TABELAS.keys()):

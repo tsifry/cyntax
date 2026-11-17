@@ -5,31 +5,26 @@ from consultacsv import consultaCsv
 from mysql.connector import Error
 
 #cria novo registro na tabela.
-def inserir(conexao, tabela):
-    if tabela not in TABELAS:
-        print('Tabela não cadastrada.')
-        input('[ENTER] para continuar')
-        return
-
+def inserir(conexao, tabela: str) -> None:
     dados = {}
 
     for campo, tipo, regra in TABELAS[tabela]:
-        if regra == "AUTO":
+        if regra == "AUTO":#caso o campo seja auto_increment ele para e vai pro próximo campo.
             continue
 
-        if regra == "NOT_NULL":
+        if regra == "NOT_NULL":#não deixa o usuario continuar sem fornecer o dado pedido.
             valor = input(f'informe {campo}: ')
 
             while valor == "":
                 print('Este campo é obrigatório!')
                 valor = input(f'informe {campo}: ')
 
-            if campo == "SENHA":
+            if campo == "SENHA":#em caso de ser senha, armaneza o hash dela e não ela de fato.
                 valor = hashlib.sha256(valor.encode('utf-8')).hexdigest()
 
             dados[campo] = valor
 
-        elif regra == "NULL":
+        elif regra == "NULL":#campo pode ficar em branco.
             valor = input(f"informe {campo} (opcional [ENTER]): ")
 
             if valor == "":
@@ -37,7 +32,7 @@ def inserir(conexao, tabela):
 
             dados[campo] = valor
 
-        elif regra == "DEFAULT":
+        elif regra == "DEFAULT":#opção de escolher o valor padrão
             valor = input(f"informe {campo} ([ENTER] para usar o valor padrão): ").strip()
 
             #if valor verifica se a variavel está vazia
@@ -45,7 +40,7 @@ def inserir(conexao, tabela):
                 dados[campo] = valor
 
         try:
-            if valor:
+            if valor:#verifica se a variavel valor não está vazia e atibui o tipo correto a ela.
                 dados[campo] = tipo(valor)
 
         except:
@@ -53,30 +48,30 @@ def inserir(conexao, tabela):
             input('[ENTER] para continuar')
             return
 
-    campos = list(dados.keys())
+    campos = list(dados.keys())#armazena os nomes dos campos.
 
-    colunas = ", ".join(f"{campo}" for campo in campos)
-    recebevalores = ", ".join(["%s"] * len(campos))
+    colunas = ", ".join(f"{campo}" for campo in campos)#monta o nome das colunas que serão usadas no comando sql.
+    recebevalores = ", ".join(["%s"] * len(campos))#monta quantos $s aparecerão no comando sql
 
+    #comando sql pronto para ser combinado com os valores.
     sql = f"""
         INSERT INTO `{tabela}` ({colunas})
         VALUES({recebevalores})
         """
 
-    geraCsv(tabela, dados)
+    geraCsv(tabela, dados)#gera o arquivo csv com os dados que o usuario forneceu nos inputs.
 
-    valores = consultaCsv(tabela)
+    valores = consultaCsv(tabela)#a variavel valores recebe a leitura do arquivo csv.
 
     try:
-        cursor = conexao.cursor()
+        cursor = conexao.cursor()#inicializa cursor.
     
-        cursor.execute(sql, tuple(valores))
-        conexao.commit()
+        cursor.execute(sql, tuple(valores))#construção do comando utilizando a string sql e os valores lidos do csv.
+        conexao.commit()#executa comando.
         print('produto cadastrado com sucesso!')
         input()
     except Error as erro:
-        print(f'Ocorreu o erro: {erro}')
+        print(f'Ocorreu o erro: {erro}')#caso ocorra algum erro.
         input()
-        return None
 
-    cursor.close()
+    cursor.close()#fecha o cursor.

@@ -1,7 +1,7 @@
 from tabelas import TABELAS
 
-#valida entradas do usuário
-def escolha(qtdOpcoes):
+#valida escolha do usuário.
+def escolha(qtdOpcoes: int) -> int:
     while True:
         while True:
             escolhida = input(' ')
@@ -21,8 +21,8 @@ def escolha(qtdOpcoes):
 
     return escolhida
 
-#organiza e direciona para a criação do comando select
-def read(conexao, tabela):
+#organiza as consultas de acordo com o que cada tabela permite.
+def read(conexao, tabela: str) -> None:
     colunas = None
     filtro = None
     print("Digite o campo: ")
@@ -36,14 +36,24 @@ def read(conexao, tabela):
                 filtro = {"EMAIL": input("Digite o EMAIL: ")}
             
             resultado = consulta(conexao, tabela, colunas, filtro)
-            exibe(resultado)
 
-        case "Autenticacao":#na teoria eh isso. tem que ver se o return vai dar de fato 1 numero
+            if resultado != None:
+                exibe(resultado)
+
+        case "Autenticacao":
             email = input('Digite o email para consulta: ')
             idUsuario = consulta(conexao, "Usuarios", filtro={"EMAIL": email})
 
+            if len(idUsuario) == 0:
+                print("Erro! A lista que recebeu os resultados da busca está vazia.")
+                input()
+                return
+
             resultado = consulta(conexao, tabela, filtro={"ID_USUARIO": idUsuario[0]['ID']})
-            exibe(resultado)
+            
+            if resultado != None:
+                exibe(resultado)
+
         case "Modulos":
             print("[1] DIFICULDADE\n[2] NOME\n[3] ASSINANTE")
             escolhida = escolha(3)
@@ -59,7 +69,10 @@ def read(conexao, tabela):
                 else:
                     filtro = {"ASSINANTE": False}
             resultado = consulta(conexao, tabela, colunas, filtro)
-            exibe(resultado)
+
+            if resultado != None:
+                exibe(resultado)
+
         case "Problemas":#AQUI TERIA O RESPOSTA TAMBEM
             print("[1] ID\n[2] ID_MODULO")
             escolhida = escolha(2)
@@ -69,7 +82,10 @@ def read(conexao, tabela):
                 filtro = {"ID_MODULO": int(input("Digite o ID_MODULO: "))}
             
             resultado = consulta(conexao, tabela, colunas, filtro)
-            exibe(resultado)
+
+            if resultado != None:
+                exibe(resultado)
+
         case "Jogos":
             print("[1] ID\n[2] ID_MODULO")
             escolhida = escolha(2)
@@ -79,7 +95,10 @@ def read(conexao, tabela):
                 filtro = {"ID_MODULO": int(input("Digite o ID_MODULO: "))}
             
             resultado = consulta(conexao, tabela, colunas, filtro)
-            exibe(resultado)
+
+            if resultado != None:
+                exibe(resultado)
+
         case "ProgressoProblemas":
             print("[1] ID_USUARIO\n[2] ID_USUARIO + ID_PROBLEMA")
             escolhida = escolha(2)
@@ -90,7 +109,10 @@ def read(conexao, tabela):
                            "ID_PROBLEMA": int(input("Digite o ID_PROBLEMA: "))}
                 
             resultado = consulta(conexao, tabela, colunas, filtro)
-            exibe(resultado)
+
+            if resultado != None:
+                exibe(resultado)
+
         case "ProgressoJogos":
             print("[1] ID_USUARIO\n[2] ID_USUARIO + ID_JOGO")
             escolhida = escolha(2)
@@ -101,11 +123,17 @@ def read(conexao, tabela):
                            "ID_JOGO": int(input("Digite o ID_JOGO: "))}
             
             resultado = consulta(conexao, tabela, colunas, filtro)
-            exibe(resultado)
+
+            if resultado != None:
+                exibe(resultado)
+
         case "PontuacaoHistorico":
             filtro = {"ID_USUARIO": int(input("Digite o ID do usuario: "))}
             resultado = consulta(conexao, tabela, colunas, filtro)
-            exibe(resultado)
+
+            if resultado != None:
+                exibe(resultado)
+
         case "Ranking":
             print("[1] TEMPORADA\n[2] ID_USUARIO + TEMPORADA")
             escolhida = escolha(2)
@@ -116,67 +144,43 @@ def read(conexao, tabela):
                           "TEMPORADA": int(input("Digite a TEMPORADA: "))}
             
             resultado = consulta(conexao, tabela, colunas, filtro)
-            exibe(resultado)
 
-#monta o comando select
-def consulta(conexao, tabela, colunas = None, filtro=None):
-    if tabela not in TABELAS:
-        print('tabela não encontrada!')
-        return
+            if resultado != None:
+                exibe(resultado)
 
-    camposValidos = {campo for campo, tipo, regra in TABELAS[tabela]}
-
-    if colunas is not None:
-
-        if not isinstance(colunas, list):
-            print("colunas deve ser uma lista!")
-            return
-        
-        colunasInvalidas = [campo for campo in colunas if campo not in camposValidos]
-
-        if colunasInvalidas:
-            print(f"colunas inválidas: {colunasInvalidas}")
-            return
-
+#monta e tenta executar o comando sql.
+def consulta(conexao, tabela: str, colunas: list = None, filtro: dict =None) -> list | None:
+    #verifica se a consulta deve ser feita através de colunas especificas ou se deve pegar todos os campos (*).
     if colunas is None:
         selecionados = "*"
     else:
         selecionados = ", ".join(f"`{campo}`" for campo in colunas)
 
-    sql = f"SELECT {selecionados} FROM `{tabela}`"
+    sql = f"SELECT {selecionados} FROM `{tabela}`"#monta primeira parte do comando sql de consulta.
 
-    if filtro is not None:
+    if filtro is not None:#filtro serve para buscar registros na tabela por algum valor em específico.
         if not isinstance(filtro, dict):
             print("filtro precisa ser um dicionario!")
             return
 
-        filtrosInvalidos = [
-            campo for campo in filtro if campo not in camposValidos
-        ]
+        condicoes = []#lista que irá armazenar as condições que serão colocadas no comando WHERE.
+        valores = []#valores das condições.
 
-        if filtrosInvalidos:
-            print(f"Filtros Inválidos: {filtrosInvalidos}")
-            input()
-            return
-
-        condicoes = []
-        valores = []
-
-    if filtro:
+    #monta as strings que serão usadas no comando WHERE de fato.
         for campo, valor in filtro.items():
             if valor is None:
-                condicoes.append(f"`{campo}` IS NULL")
+                condicoes.append(f"{campo} IS NULL")
             else:
-                condicoes.append(f"`{campo}` = %s")
+                condicoes.append(f"{campo} = %s")
                 valores.append(valor)
 
-    if condicoes:
+    if condicoes:#verifica se condições não está vazia e adiciona no comando sql a parte das condições.
         sql += " WHERE " + " AND ".join(condicoes)
 
-    if tabela == "Ranking":
+    if tabela == "Ranking":#se for a tabela ranking os valores devem ser mostrados do maior para o menor.
         sql += f" ORDER BY `TEMPORADA` DESC"
 
-        sql += " LIMIT %s"
+        sql += " LIMIT %s"#adiciona a parte do limit no comando sql.
         while True:
             limit = int(input('LIMIT: '))
             if isinstance(limit, int):
@@ -187,20 +191,26 @@ def consulta(conexao, tabela, colunas = None, filtro=None):
         cursor = conexao.cursor(dictionary = True)
         cursor.execute(sql, tuple(valores))
 
-        resultados = cursor.fetchall()
+        resultados = cursor.fetchall()#coloca os resultados da consulta na variavél.
 
         return resultados
     except Exception as erro:
         print(f"Ocorreu o erro: {erro}")
         input()
-        return []
+        return None
 
     finally:
         cursor.close()
 
-def exibe(resultado):
+#função responsável por exibir os resultados como uma tabela no terminal.
+def exibe(resultado: list) -> None:
+    if len(resultado) == 0:
+        print("Erro! A lista que recebeu os resultados da busca está vazia.")
+        input()
+        return
+    
     print('-' * 120)
-    tamanho = calctamanho(resultado)
+    tamanho = calctamanho(resultado)#calcula em qual valor deve centralizar cada campo e valor.
     for indice, chave in enumerate(resultado[0].keys()):
         print(f"{chave:^{tamanho[indice]}}|", end='')
     print()
@@ -214,10 +224,12 @@ def exibe(resultado):
 
     input()
 
-def calctamanho(resultado):
-    tamanho = []
-    chaves = []
-    valores = []
+#calcula em qual valor deve centralizar cada campo e valor.
+def calctamanho(resultado: list) -> list:
+    tamanho = []#lista que guardará os valores finais que cada campo deve ser centralizado.
+    chaves = []#guardará os valores do tamanho dos nomes das chaves para ser usados nos calculos.
+    valores = []#guardará os valores de cada registro da tabela.
+
     #pega o tamanho de todas as chaves
     for chave in resultado[0].keys():
         chaves.append(len(chave) + 2)
@@ -230,20 +242,20 @@ def calctamanho(resultado):
 
         valores.append(valor)
 
-    valoresfinais = []
+    valoresfinais = []#guardará os finais tamanhos dos maiores valores de cada coluna.
 
-    #pega o maior dos tamanhos dos valores de cada coluna da tabela
+    #pega o maior dos tamanhos dos valores de cada coluna da tabela.
     for v in range(len(valores) - 1):
         for c in range(len(chaves)):
             maior = max(valores[v][c], valores[v+1][c])
             valoresfinais.append(maior + 2)
 
-    #caso só tenha um registro na tabela
+    #caso só tenha um registro na tabela usa ele para comparação final.
     if len(valoresfinais) == 0:
         valoresfinais = valores[0][:]
 
-    #monta os tamanho finais que serão usados em cada coluna
+    #pega o maior tamanho entre chaves e valores.
     for i in range(len(chaves)):
         tamanho.append(max(chaves[i], valoresfinais[i]))
 
-    return tamanho
+    return tamanho#retorna a lista contendo os tamanhos que cada coluna deve ter no print da consulta.
