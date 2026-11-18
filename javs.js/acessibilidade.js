@@ -1,4 +1,3 @@
-// Partes da página que serão alteradas (o painel fica de fora de propósito)
 const alvos = document.querySelectorAll("header, .container, .beneficios, .explicacao, footer");
 
 const btnAcess = document.getElementById("btnAcess");

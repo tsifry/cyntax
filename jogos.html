@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogos | Cyntax</title>
+    <link rel="stylesheet" href="./stylecss/index.css">
+    <script src="./javs.js/index.js " defer></script>
+    <script src="./javs.js/jogos.js" defer></script>
+    <link rel="stylesheet" href="./stylecss/acessibilidade.css">
+    <link rel="stylesheet" href="./stylecss/jogos.css">
+</head>
+<body>
+   <header>
+        <nav>
+            <a href="./index.html" class="logo-container">
+                <img src="./img/image.png" alt="Logo da Cyntax" class="logo"></img>
+                <h1 class="logo-text">Cyn<span>tax</span></h1>
+            </a>
+            <div class="links">
+                <a href="./modulo.html"><p>Módulos</p></a>
+                <a href="./jogos.html"><p>Jogos</p></a>
+                <a href="./questoes.html"><p>Questões</p></a>
+                <a href="./ranking.html"><p>Ranking</p></a>
+                <a href="./sobre.html"><p>Sobre</p></a>
+            </div>
+    </header>
+
+    <div class="container">
+        <span class="descricao">Aprenda jogando</span>
+        <h1 class="titulopt1">Jogos de física <span>para treinar brincando!</span></h1>
+        <p class="paragrafo">Fixe os conceitos em partidas rápidas: teste seus conhecimentos no quiz, combine grandezas e unidades na memória e acerte o alvo aplicando a física do lançamento oblíquo.</p>
+
+        <div class="buttons">
+            <a href="#escolha" class="btnPrinc"> <ion-icon name="game-controller"></ion-icon> Escolher um jogo</a>
+            <a href="./questoes.html" class="btnSec"> <ion-icon name="analytics-outline"></ion-icon> Questões do ENEM</a>
+        </div>
+
+        <div class="img-anime">
+            <img src="./img/Studying-bro.png" alt="Estudante de física">
+        </div>
+    </div>
+
+    <section class="beneficios jogos" id="escolha" aria-labelledby="titulo-jogos">
+        <div class="jogos-conteudo">
+
+            <div class="jogos-cabecalho">
+                <h2 id="titulo-jogos">Escolha seu desafio</h2>
+                <p>Três jogos rápidos para treinar. Seu recorde fica salvo neste navegador.</p>
+            </div>
+
+            <div class="seletor" role="tablist" aria-label="Jogos disponíveis">
+                <button type="button" class="seletor-card" role="tab" id="aba-quiz" aria-selected="true" aria-controls="jogo-quiz">
+                    <ion-icon name="help-circle" aria-hidden="true"></ion-icon>
+                    <h3>Quiz Relâmpago</h3>
+                    <p>5 perguntas de múltipla escolha sobre conceitos básicos.</p>
+                    <span class="nivel">Fácil</span>
+                </button>
+
+                <button type="button" class="seletor-card" role="tab" id="aba-memoria" aria-selected="false" aria-controls="jogo-memoria" tabindex="-1">
+                    <ion-icon name="apps" aria-hidden="true"></ion-icon>
+                    <h3>Memória das Unidades</h3>
+                    <p>Encontre os pares: grandeza física e unidade do SI.</p>
+                    <span class="nivel">Médio</span>
+                </button>
+
+                <button type="button" class="seletor-card" role="tab" id="aba-lancamento" aria-selected="false" aria-controls="jogo-lancamento" tabindex="-1">
+                    <ion-icon name="rocket" aria-hidden="true"></ion-icon>
+                    <h3>Lançamento ao Alvo</h3>
+                    <p>Escolha o ângulo certo para acertar o alvo.</p>
+                    <span class="nivel">Desafiador</span>
+                </button>
+            </div>
+
+            <!-- ============ JOGO 1: QUIZ ============ -->
+            <div class="jogo-painel" id="jogo-quiz" role="tabpanel" aria-labelledby="aba-quiz">
+                <div class="jogo-topo">
+                    <h3>Quiz Relâmpago</h3>
+                    <p class="recorde" id="recorde-quiz">Recorde: –</p>
+                </div>
+
+                <div id="quiz-jogo">
+                    <div class="jogo-stats">
+                        <span class="chip" id="quiz-contador">Pergunta 1 de 5</span>
+                        <span class="chip" id="quiz-pontos">Pontos: 0</span>
+                    </div>
+                    <div class="barra" id="quiz-trilho" role="progressbar" aria-label="Progresso do quiz" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0">
+                        <div class="barra-fill" id="quiz-barra"></div>
+                    </div>
+
+                    <p class="pergunta" id="quiz-pergunta"></p>
+                    <div class="opcoes" id="quiz-opcoes"></div>
+                    <p class="feedback" id="quiz-feedback" role="status" aria-live="polite"></p>
+                    <button type="button" class="jogo-btn" id="quiz-proxima" hidden>Próxima pergunta</button>
+                </div>
+
+                <div id="quiz-fim" hidden>
+                    <p class="resultado-grande" id="quiz-resultado" tabindex="-1"></p>
+                    <p class="feedback" id="quiz-mensagem"></p>
+                    <button type="button" class="jogo-btn" id="quiz-reiniciar">Jogar de novo</button>
+                </div>
+            </div>
+
+            <!-- ============ JOGO 2: MEMÓRIA ============ -->
+            <div class="jogo-painel" id="jogo-memoria" role="tabpanel" aria-labelledby="aba-memoria" hidden>
+                <div class="jogo-topo">
+                    <h3>Memória das Unidades</h3>
+                    <p class="recorde" id="recorde-memoria">Recorde: –</p>
+                </div>
+
+                <p class="jogo-ajuda">Vire duas cartas por vez. Cada grandeza física combina com a sua unidade no Sistema Internacional.</p>
+
+                <div class="jogo-stats">
+                    <span class="chip">Jogadas: <strong id="mem-jogadas">0</strong></span>
+                    <span class="chip">Pares: <strong id="mem-pares">0</strong> de 6</span>
+                </div>
+
+                <div class="memoria-grade" id="mem-grade" role="group" aria-label="Cartas do jogo da memória"></div>
+
+                <p class="feedback" id="mem-feedback" role="status" aria-live="polite"></p>
+                <button type="button" class="jogo-btn sec" id="mem-reiniciar">Embaralhar e recomeçar</button>
+            </div>
+
+            <!-- ============ JOGO 3: LANÇAMENTO ============ -->
+            <div class="jogo-painel" id="jogo-lancamento" role="tabpanel" aria-labelledby="aba-lancamento" hidden>
+                <div class="jogo-topo">
+                    <h3>Lançamento ao Alvo</h3>
+                    <p class="recorde" id="recorde-lancamento">Recorde: –</p>
+                </div>
+
+                <p class="jogo-ajuda">Escolha o ângulo e lance o projétil. Velocidade inicial de 20 m/s e g = 10 m/s², sem resistência do ar. Dica: alcance = v² · sen(2θ) / g.</p>
+
+                <div class="jogo-stats">
+                    <span class="chip">Alvo a <strong id="lanc-alvo">–</strong> m (margem de ±2 m)</span>
+                    <span class="chip">Tentativas restantes: <strong id="lanc-restam">5</strong></span>
+                </div>
+
+                <svg class="lanc-cena" viewBox="0 0 600 200" role="img" aria-labelledby="lanc-titulo lanc-desc">
+                    <title id="lanc-titulo">Cena do lançamento oblíquo</title>
+                    <desc id="lanc-desc">Um canhão à esquerda lança um projétil em direção a uma zona-alvo no chão. A trajetória é desenhada depois de cada lançamento.</desc>
+
+                    <line class="solo" x1="0" y1="170" x2="600" y2="170"/>
+                    <g aria-hidden="true">
+                        <line class="marca" x1="30" y1="170" x2="30" y2="176"/><text class="escala" x="30" y="190" text-anchor="middle">0</text>
+                        <line class="marca" x1="138" y1="170" x2="138" y2="176"/><text class="escala" x="138" y="190" text-anchor="middle">10</text>
+                        <line class="marca" x1="246" y1="170" x2="246" y2="176"/><text class="escala" x="246" y="190" text-anchor="middle">20</text>
+                        <line class="marca" x1="354" y1="170" x2="354" y2="176"/><text class="escala" x="354" y="190" text-anchor="middle">30</text>
+                        <line class="marca" x1="462" y1="170" x2="462" y2="176"/><text class="escala" x="462" y="190" text-anchor="middle">40</text>
+                        <line class="marca" x1="570" y1="170" x2="570" y2="176"/><text class="escala" x="570" y="190" text-anchor="middle">50 m</text>
+                    </g>
+
+                    <rect class="alvo-zona" id="lanc-zona" x="0" y="150" width="43.2" height="20" rx="3"/>
+                    <path class="trajetoria" id="lanc-trajetoria" d=""/>
+                    <circle class="impacto" id="lanc-impacto" r="6" cx="0" cy="170" style="display:none"/>
+
+                    <g transform="translate(30 170)">
+                        <g id="lanc-cano"><line class="cano" x1="0" y1="0" x2="36" y2="0"/></g>
+                        <circle class="base" r="11"/>
+                    </g>
+                </svg>
+
+                <div class="lanc-controles">
+                    <label for="lanc-angulo">Ângulo: <output id="lanc-angulo-valor" for="lanc-angulo">45°</output></label>
+                    <input type="range" id="lanc-angulo" min="5" max="85" step="1" value="45">
+                    <button type="button" class="jogo-btn" id="lanc-lancar">Lançar!</button>
+                    <button type="button" class="jogo-btn sec" id="lanc-novo">Novo alvo</button>
+                </div>
+
+                <p class="feedback" id="lanc-feedback" role="status" aria-live="polite"></p>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <h1 class="titulo-rodape">
+            Explore os <span>módulos</span>
+        </h1>
+
+        <p>Cada assunto é um passo a mais na sua jornada de aprendizado.</p>
+
+        <a href="#" id="rodape"> ver todos os módulos </a> <ion-icon name="arrow-forward-outline"></ion-icon>
+    </footer>
+
+    <script  type = "module"  src = " https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js " ></script> 
+    <script nomodule src = " https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js " ></script>  
+
+    <button id="btnAcess" aria-label="Abrir menu de acessibilidade">
+    <ion-icon name="accessibility"></ion-icon>
+</button>
+
+<div id="painelAcess" hidden>
+    <h3>Acessibilidade</h3>
+    <button id="fonteMais">A+ Aumentar fonte</button>
+    <button id="fonteMenos">A- Diminuir fonte</button>
+    <button id="lerPagina">🔊 Ler página em áudio</button>
+    <button id="contraste">Alto contraste</button>
+    <button id="cinza">Escala de cinza</button>
+    <button id="daltonismo">Modo daltonismo</button>
+    <button id="resetar">Restaurar padrão</button>
+</div>
+
+<script src="./javs.js/acessibilidade.js"></script>
+</body>
+</html>

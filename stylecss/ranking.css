@@ -1,0 +1,399 @@
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+}
+
+/* ---------- Seção escura ---------- */
+.ranking {
+    color: var(--cor-fonte-clara);
+}
+
+.ranking-conteudo {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.ranking-cabecalho {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.ranking-cabecalho h2 {
+    margin-bottom: 10px;
+    color: var(--cor-fonte-branca);
+    font-size: 38px;
+}
+
+.ranking-cabecalho p {
+    color: var(--cor-fonte-clara);
+    font-size: 17px;
+}
+
+/* ---------- Pódio ---------- */
+.podio {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: end;
+    gap: 16px;
+    margin-bottom: 28px;
+    list-style: none;
+}
+
+/* a ordem no HTML é 1º, 2º, 3º (leitura correta); visualmente o 1º vai ao centro */
+.podio-1 { order: 2; }
+.podio-2 { order: 1; }
+.podio-3 { order: 3; }
+
+.podio-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 24px 16px;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    background:
+        linear-gradient(#071329, #071329) padding-box,
+        linear-gradient(90deg, #526EF8, #38BDF8) border-box;
+    box-shadow: 10px 8px 8px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.podio-1 { min-height: 300px; background:
+        linear-gradient(#162E68, #162E68) padding-box,
+        linear-gradient(90deg, #526EF8, #38BDF8) border-box; }
+.podio-2 { min-height: 260px; }
+.podio-3 { min-height: 240px; }
+
+.podio-item ion-icon {
+    font-size: 40px;
+}
+
+.podio-1 ion-icon { color: #FFD24A; font-size: 48px; }
+.podio-2 ion-icon { color: #C9D4E8; }
+.podio-3 ion-icon { color: #E0955A; }
+
+/* a posição também aparece em texto (não depende só da cor da medalha) */
+.podio-pos {
+    padding: 3px 12px;
+    border-radius: 20px;
+    background-color: rgba(62, 103, 180, 0.35);
+    color: #A9DFFF;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.podio-nome {
+    color: var(--cor-fonte-branca);
+    font-size: 19px;
+    overflow-wrap: anywhere;
+}
+
+.podio-nivel {
+    color: var(--cor-fonte-simulacao);
+    font-size: 13px;
+}
+
+.podio-pontos {
+    margin-top: auto;
+    color: var(--cor-fonte-branca);
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.podio-pontos small {
+    color: var(--cor-fonte-simulacao);
+    font-size: 13px;
+    font-weight: normal;
+}
+
+/* ---------- Avatar com iniciais ---------- */
+.avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #526EF8, #38BDF8);
+    color: var(--cor-fonte-branca);
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.avatar-grande {
+    width: 72px;
+    height: 72px;
+    font-size: 24px;
+}
+
+/* ---------- Tabela ---------- */
+.tabela-caixa {
+    border: 1px solid transparent;
+    border-radius: 20px;
+    background:
+        linear-gradient(#071329, #071329) padding-box,
+        linear-gradient(90deg, #526EF8, #38BDF8) border-box;
+    box-shadow: 10px 8px 8px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+.tabela-rolagem {
+    overflow-x: auto;
+}
+
+.tabela {
+    width: 100%;
+    min-width: 560px;
+    border-collapse: collapse;
+    color: var(--cor-fonte-clara);
+    font-size: 15px;
+}
+
+.tabela th,
+.tabela td {
+    padding: 14px 18px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.tabela thead th {
+    background-color: var(--cor-fundo-cards);
+    color: var(--cor-fonte-simulacao);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.tabela tbody tr:nth-child(even) {
+    background-color: var(--cor-fundo-cards);
+}
+
+.tabela tbody tr:hover {
+    background-color: var(--cor-card);
+}
+
+.tabela .col-pos {
+    width: 90px;
+    color: var(--cor-fonte-branca);
+    font-weight: bold;
+}
+
+.tabela .col-pontos {
+    text-align: right;
+    color: var(--cor-fonte-branca);
+    font-weight: bold;
+}
+
+.aluno {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--cor-fonte-branca);
+    font-weight: bold;
+}
+
+.ranking-nota {
+    margin: 14px 0 30px;
+    color: var(--cor-fonte-simulacao);
+    font-size: 13px;
+    text-align: center;
+}
+
+/* ---------- Sua posição ---------- */
+.sua-posicao {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+    padding: 24px 28px;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    background:
+        linear-gradient(#122650, #122650) padding-box,
+        linear-gradient(90deg, #526EF8, #38BDF8) border-box;
+    scroll-margin-top: 90px;
+}
+
+.sua-posicao > ion-icon {
+    color: var(--cor-ciano);
+    font-size: 52px;
+}
+
+.sua-posicao-texto {
+    flex: 1;
+    min-width: 220px;
+}
+
+.sua-posicao-texto h3 {
+    margin-bottom: 4px;
+    color: var(--cor-fonte-branca);
+    font-size: 20px;
+}
+
+.sua-posicao-texto p {
+    color: var(--cor-fonte-clara);
+    font-size: 15px;
+}
+
+.sua-posicao-botoes {
+    display: flex;
+    gap: 12px;
+}
+
+.rk-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 42px;
+    padding: 0 24px;
+    border: 2px solid transparent;
+    border-radius: 30px;
+    color: var(--cor-fonte-branca);
+    font-size: 14px;
+    font-weight: bold;
+    transition: opacity 0.2s;
+}
+
+.rk-btn:hover {
+    opacity: 0.8;
+}
+
+.rk-btn-cheio {
+    background: linear-gradient(90deg, #526EF8, #38BDF8);
+}
+
+.rk-btn-contorno {
+    background:
+        linear-gradient(#122650, #122650) padding-box,
+        linear-gradient(90deg, #526EF8, #38BDF8) border-box;
+}
+
+.ranking a:focus-visible {
+    outline: 3px solid var(--cor-ciano);
+    outline-offset: 3px;
+}
+
+/* ---------- Seção clara: como ganhar pontos ----------
+   Usa a classe .explicacao para o painel de acessibilidade continuar valendo,
+   então aqui desfazemos o layout em colunas dela. */
+.explicacao.pontos {
+    display: block;
+    margin-left: 0;
+    padding: 70px 80px;
+}
+
+.pontos-conteudo {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.pontos-topo {
+    max-width: 640px;
+    margin: 0 auto 40px;
+    text-align: center;
+}
+
+.pontos-rotulo {
+    color: #2B57D6;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.pontos-topo > p {
+    color: var(--cor-fonte-secundaria);
+    font-size: 17px;
+    line-height: 1.55;
+}
+
+.pontuacao {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    list-style: none;
+}
+
+.pontuacao-item {
+    padding: 24px;
+    border: 1px solid #DCE6FA;
+    border-radius: 20px;
+    background-color: var(--cor-fundo-claro-2);
+}
+
+.pontuacao-item ion-icon {
+    color: var(--cor-azul);
+    font-size: 36px;
+}
+
+.pontuacao-item h3 {
+    margin: 8px 0 6px;
+    color: var(--cor-fonte-escura);
+    font-size: 18px;
+}
+
+.pontuacao-item p {
+    color: var(--cor-fonte-secundaria);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.ranking-nota-clara {
+    margin-top: 20px;
+    color: var(--cor-fonte-secundaria);
+    font-size: 13px;
+    text-align: center;
+}
+
+/* ---------- Responsivo (só a parte do ranking) ---------- */
+@media (max-width: 900px) {
+    .beneficios.ranking {
+        padding: 40px 20px;
+    }
+
+    .explicacao.pontos {
+        padding: 40px 20px;
+    }
+
+    .podio {
+        grid-template-columns: 1fr;
+    }
+
+    .podio-1, .podio-2, .podio-3 {
+        order: 0;
+        min-height: 0;
+    }
+
+    .pontuacao {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .ranking-cabecalho h2 {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 560px) {
+    .pontuacao {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ---------- Menos movimento ---------- */
+@media (prefers-reduced-motion: reduce) {
+    .ranking *,
+    .ranking *::before,
+    .ranking *::after {
+        transition: none !important;
+        animation: none !important;
+    }
+}

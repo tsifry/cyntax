@@ -1,0 +1,381 @@
+.explicacao.praticar {
+    display: block;
+    margin-left: 0;
+    padding: 70px 80px;
+}
+
+.praticar-conteudo {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.praticar-topo {
+    max-width: 640px;
+    margin: 0 auto 30px;
+    text-align: center;
+}
+
+.praticar-rotulo {
+    color: #2B57D6;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.praticar-topo > p {
+    color: var(--cor-fonte-secundaria);
+    font-size: 17px;
+    line-height: 1.55;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* ---------- Filtros ---------- */
+.filtros {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filtro {
+    padding: 8px 18px;
+    border: 1px solid #DCE6FA;
+    border-radius: 20px;
+    background-color: var(--cor-fundo-claro-2);
+    color: var(--cor-fonte-escura);
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.filtro:hover {
+    opacity: 0.8;
+}
+
+.filtro[aria-pressed="true"] {
+    border-color: transparent;
+    background: linear-gradient(90deg, #526EF8, #38BDF8);
+    color: var(--cor-fonte-branca);
+}
+
+.placar {
+    margin-bottom: 24px;
+    text-align: center;
+    color: #2B57D6;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/* ---------- Questões ---------- */
+.lista-questoes {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.questao {
+    padding: 24px;
+    border: 1px solid #DCE6FA;
+    border-radius: 20px;
+    background-color: var(--cor-fundo-claro-2);
+}
+
+.questao[hidden] {
+    display: none;
+}
+
+.questao-topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.questao-modulo {
+    color: #2B57D6;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.questao-nivel {
+    padding: 3px 12px;
+    border-radius: 20px;
+    background-color: rgba(62, 103, 180, 0.35);
+    color: #0B2A6B;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.questao h3 {
+    margin-bottom: 8px;
+    color: var(--cor-fonte-escura);
+    font-size: 20px;
+}
+
+.enunciado {
+    margin-bottom: 16px;
+    color: var(--cor-fonte-secundaria);
+    font-size: 16px;
+    line-height: 1.55;
+}
+
+.alternativas {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0 0 16px;
+    padding: 0;
+    border: 0;
+}
+
+.alternativa {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border: 1px solid #DCE6FA;
+    border-radius: 14px;
+    background-color: #FFFFFF;
+    color: var(--cor-fonte-escura);
+    font-size: 15px;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.alternativa:hover {
+    border-color: #526EF8;
+}
+
+.alternativa:focus-within {
+    outline: 3px solid #2B57D6;
+    outline-offset: 2px;
+}
+
+.alternativa input {
+    accent-color: #2B57D6;
+}
+
+.letra {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #526EF8, #38BDF8);
+    color: var(--cor-fonte-branca);
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.alternativa.certa {
+    border-color: #15803D;
+    background-color: #E7F6EC;
+}
+
+.alternativa.errada {
+    border-color: #B91C1C;
+    background-color: #FBE9E9;
+}
+
+.alternativa.certa::after {
+    content: "✓ Correta";
+    margin-left: auto;
+    color: #15803D;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.alternativa.errada::after {
+    content: "✗ Sua resposta";
+    margin-left: auto;
+    color: #B91C1C;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.btn-responder,
+.btn-refazer {
+    padding: 12px 24px;
+    border: 0;
+    border-radius: 30px;
+    background: linear-gradient(90deg, #526EF8, #38BDF8);
+    color: var(--cor-fonte-branca);
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.btn-responder:hover,
+.btn-refazer:hover {
+    opacity: 0.8;
+}
+
+.btn-responder:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.btn-responder:focus-visible,
+.btn-refazer:focus-visible,
+.filtro:focus-visible {
+    outline: 3px solid #2B57D6;
+    outline-offset: 3px;
+}
+
+.resultado {
+    margin-top: 12px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.resultado.certa {
+    color: #15803D;
+}
+
+.resultado.errada {
+    color: #B91C1C;
+}
+
+.comentario {
+    margin-top: 10px;
+    padding: 14px 16px;
+    border-left: 4px solid #526EF8;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    color: var(--cor-fonte-secundaria);
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+.comentario[hidden] {
+    display: none;
+}
+
+.refazer {
+    margin-top: 28px;
+    text-align: center;
+}
+
+/* ---------- Dicas ---------- */
+.dicas {
+    color: var(--cor-fonte-clara);
+}
+
+.dicas-conteudo {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.dicas-cabecalho {
+    margin-bottom: 36px;
+    text-align: center;
+}
+
+.dicas-cabecalho h2 {
+    margin-bottom: 10px;
+    color: var(--cor-fonte-branca);
+    font-size: 38px;
+}
+
+.dicas-cabecalho p {
+    color: var(--cor-fonte-clara);
+    font-size: 17px;
+}
+
+.dicas-grade {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.dica-card {
+    padding: 24px;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    background:
+        linear-gradient(#071329, #071329) padding-box,
+        linear-gradient(90deg, #526EF8, #38BDF8) border-box;
+    box-shadow: 10px 8px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s;
+}
+
+.dica-card:hover {
+    transform: translateY(-4px);
+}
+
+.dica-card > ion-icon {
+    margin-bottom: 14px;
+    color: var(--cor-ciano);
+    font-size: 42px;
+}
+
+.dica-card h3 {
+    margin-bottom: 8px;
+    color: var(--cor-fonte-branca);
+    font-size: 21px;
+}
+
+.dica-card p {
+    color: var(--cor-fonte-clara);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* ---------- Responsivo (só a parte das questões) ---------- */
+@media (max-width: 1100px) {
+    .dicas-grade {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .explicacao.praticar {
+        padding: 40px 20px;
+    }
+
+    .beneficios.dicas {
+        padding: 40px 20px;
+    }
+
+    .dicas-grade {
+        grid-template-columns: 1fr;
+    }
+
+    .dicas-cabecalho h2 {
+        font-size: 30px;
+    }
+
+    .questao {
+        padding: 18px;
+    }
+}
+
+/* ---------- Menos movimento ---------- */
+@media (prefers-reduced-motion: reduce) {
+    .praticar *,
+    .dicas *,
+    .praticar *::before,
+    .dicas *::before {
+        transition: none !important;
+        animation: none !important;
+    }
+}

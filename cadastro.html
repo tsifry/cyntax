@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro | Cyntax</title>
+    <link rel="stylesheet" href="./stylecss/index.css">
+    <script src="./javs.js/index.js " defer></script>
+    <script src="./javs.js/auth.js" defer></script>
+    <link rel="stylesheet" href="./stylecss/acessibilidade.css">
+    <link rel="stylesheet" href="./stylecss/auth.css">
+</head>
+<body>
+   <header>
+        <nav>
+            <a href="./index.html" class="logo-container">
+                <img src="./img/image.png" alt="Logo da Cyntax" class="logo"></img>
+                <h1 class="logo-text">Cyn<span>tax</span></h1>
+            </a>
+            <div class="links">
+                <a href="./modulo.html"><p>Módulos</p></a>
+                <a href="./jogos.html"><p>Jogos</p></a>
+                <a href="./questoes.html"><p>Questões</p></a>
+                <a href="./ranking.html"><p>Ranking</p></a>
+                <a href="./sobre.html"><p>Sobre</p></a>
+            </div>
+
+            <div class="busca">
+                <input type="text" id="campoBusca" placeholder="Pesquisar...">
+                <button type="button" id="botaoBusca"><ion-icon name="search-outline"></ion-icon></button>
+            </div>
+
+            <div class="identificacao">
+                <a href="#" class="entrar">Entrar</a>
+                <a href="./cadastro.html" class="cadastro">Cadastrar</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container auth">
+        <div class="auth-texto">
+            <span class="descricao">Cadastro gratuito</span>
+            <h1 class="titulopt1">Crie sua conta <span>e comece a estudar!</span></h1>
+            <p class="paragrafo">Leva menos de um minuto. Com a conta, você salva seu progresso, guarda suas pontuações dos jogos e disputa posições no ranking.</p>
+
+            <ul class="auth-vantagens">
+                <li><ion-icon name="checkmark-circle" aria-hidden="true"></ion-icon> Acompanhe sua evolução em cada módulo</li>
+                <li><ion-icon name="checkmark-circle" aria-hidden="true"></ion-icon> Guarde seus recordes nos jogos</li>
+                <li><ion-icon name="checkmark-circle" aria-hidden="true"></ion-icon> Apareça no ranking só com seu nome de usuário</li>
+                <li><ion-icon name="checkmark-circle" aria-hidden="true"></ion-icon> Seus dados protegidos conforme a LGPD</li>
+            </ul>
+        </div>
+
+        <form class="auth-card" id="formCadastro" novalidate aria-labelledby="titulo-form">
+            <h2 id="titulo-form">Criar conta</h2>
+            <p class="auth-nota">Campos com <span aria-hidden="true">*</span><span class="sr-only">asterisco</span> são obrigatórios.</p>
+
+                <div class="auth-campo">
+                    <label for="nome">Nome completo <span aria-hidden="true">*</span></label>
+                    <input type="text" id="nome" name="nome" autocomplete="name" required aria-describedby="erro-nome">
+                    <span class="auth-erro" id="erro-nome"></span>
+                </div>
+                <div class="auth-campo">
+                    <label for="usuario">Nome de usuário <span aria-hidden="true">*</span></label>
+                    <input type="text" id="usuario" name="usuario" autocomplete="username" required aria-describedby="erro-usuario ajuda-usuario">
+                    <span class="auth-ajuda" id="ajuda-usuario">É o nome que aparece no ranking. Use de 3 a 20 letras, números ou _.</span>
+                    <span class="auth-erro" id="erro-usuario"></span>
+                </div>
+                <div class="auth-campo">
+                    <label for="email">E-mail <span aria-hidden="true">*</span></label>
+                    <input type="email" id="email" name="email" autocomplete="email" required aria-describedby="erro-email">
+                    <span class="auth-erro" id="erro-email"></span>
+                </div>
+                <div class="auth-campo">
+                    <label for="nivel">Seu momento nos estudos <span aria-hidden="true">*</span></label>
+                    <select id="nivel" name="nivel" required aria-describedby="erro-nivel">
+                        <option value="">Selecione</option>
+                        <option value="1ano">Ensino médio, 1º ano</option>
+                        <option value="2ano">Ensino médio, 2º ano</option>
+                        <option value="3ano">Ensino médio, 3º ano</option>
+                        <option value="cursinho">Cursinho pré-vestibular</option>
+                        <option value="outro">Outro</option>
+                    </select>
+                    <span class="auth-erro" id="erro-nivel"></span>
+                </div>
+                <div class="auth-campo">
+                    <label for="senha">Senha <span aria-hidden="true">*</span></label>
+                    <div class="senha-box">
+                        <input type="password" id="senha" name="senha" autocomplete="new-password" required aria-describedby="erro-senha ajuda-senha forca-texto">
+                        <button type="button" class="btn-olho" data-alvo="senha" aria-label="Mostrar senha" aria-pressed="false"><ion-icon name="eye-outline" aria-hidden="true"></ion-icon></button>
+                    </div>
+                    <span class="auth-ajuda" id="ajuda-senha">Mínimo de 8 caracteres, com letras e números.</span>
+                    <div class="forca" id="forca" data-nivel="0" aria-hidden="true"><span></span><span></span><span></span></div>
+                    <span class="auth-ajuda" id="forca-texto">Força da senha: digite uma senha.</span>
+                    <span class="auth-erro" id="erro-senha"></span>
+                </div>
+                <div class="auth-campo">
+                    <label for="confirma">Confirmar senha <span aria-hidden="true">*</span></label>
+                    <div class="senha-box">
+                        <input type="password" id="confirma" name="confirma" autocomplete="new-password" required aria-describedby="erro-confirma">
+                        <button type="button" class="btn-olho" data-alvo="confirma" aria-label="Mostrar senha" aria-pressed="false"><ion-icon name="eye-outline" aria-hidden="true"></ion-icon></button>
+                    </div>
+                    <span class="auth-erro" id="erro-confirma"></span>
+                </div>
+
+                <div class="auth-check">
+                    <input type="checkbox" id="termos" name="termos" required aria-describedby="erro-termos">
+                    <label for="termos">Li e concordo com os <a href="#">Termos de uso</a> e com a <a href="#">Política de privacidade</a>, incluindo o tratamento dos meus dados conforme a LGPD. <span aria-hidden="true">*</span></label>
+                </div>
+                <span class="auth-erro" id="erro-termos"></span>
+
+                <button type="submit" class="auth-btn">Criar conta</button>
+                <p class="auth-status" id="statusForm" role="status" aria-live="polite"></p>
+
+                <p class="auth-troca">Já tem conta? <a href="./login.html">Entrar</a></p>
+        </form>
+    </div>
+
+    <footer>
+        <h1 class="titulo-rodape">
+            Explore os <span>módulos</span>
+        </h1>
+
+        <p>Cada assunto é um passo a mais na sua jornada de aprendizado.</p>
+
+        <a href="./modulo.html" id="rodape"> ver todos os módulos </a> <ion-icon name="arrow-forward-outline"></ion-icon>
+    </footer>
+
+    <script  type = "module"  src = " https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js " ></script> 
+    <script nomodule src = " https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js " ></script>  
+
+    <button id="btnAcess" aria-label="Abrir menu de acessibilidade">
+    <ion-icon name="accessibility"></ion-icon>
+</button>
+
+<div id="painelAcess" hidden>
+    <h3>Acessibilidade</h3>
+    <button id="fonteMais">A+ Aumentar fonte</button>
+    <button id="fonteMenos">A- Diminuir fonte</button>
+    <button id="lerPagina">🔊 Ler página em áudio</button>
+    <button id="contraste">Alto contraste</button>
+    <button id="cinza">Escala de cinza</button>
+    <button id="daltonismo">Modo daltonismo</button>
+    <button id="resetar">Restaurar padrão</button>
+</div>
+
+<script src="./javs.js/acessibilidade.js"></script>
+</body>
+</html>

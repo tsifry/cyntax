@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulos | Cyntax</title>
+    <link rel="stylesheet" href="./stylecss/index.css">
+    <script src="./javs.js/index.js " defer></script>
+    <link rel="stylesheet" href="./stylecss/acessibilidade.css">
+    <link rel="stylesheet" href="./stylecss/modulo.css">
+</head>
+<body>
+   <header>
+        <nav>
+            <a href="./index.html" class="logo-container">
+                <img src="./img/image.png" alt="Logo da Cyntax" class="logo"></img>
+                <h1 class="logo-text">Cyn<span>tax</span></h1>
+            </a>
+            <div class="links">
+                <a href="./modulo.html"><p>Módulos</p></a>
+                <a href="./jogos.html"><p>Jogos</p></a>
+                <a href="./questoes.html"><p>Questões</p></a>
+                <a href="./ranking.html"><p>Ranking</p></a>
+                <a href="./sobre.html"><p>Sobre</p></a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <span class="descricao">Trilha de estudos</span>
+        <h1 class="titulopt1">Módulos de física <span>do básico ao avançado!</span></h1>
+        <p class="paragrafo">Oito módulos com teoria completa, simuladores e exercícios no estilo do ENEM. Siga a ordem sugerida ou escolha o assunto que você mais precisa reforçar.</p>
+
+        <div class="buttons">
+            <a href="#cinematica" class="btnPrinc"> <ion-icon name="rocket-sharp"></ion-icon> Começar pela Cinemática</a>
+            <a href="./jogos.html" class="btnSec"> <ion-icon name="game-controller"></ion-icon> Praticar com jogos</a>
+        </div>
+
+        <div class="img-anime">
+            <img src="./img/Studying-bro.png" alt="Estudante de física">
+        </div>
+    </div>
+
+    <section class="beneficios modulos" id="escolha" aria-labelledby="titulo-modulos">
+        <div class="modulos-conteudo">
+
+            <div class="modulos-cabecalho">
+                <h2 id="titulo-modulos">Escolha seu módulo</h2>
+                <p>Cada módulo reúne teoria, simulações e questões comentadas.</p>
+                <ul class="modulos-resumo">
+                    <li><ion-icon name="library-outline" aria-hidden="true"></ion-icon> 8 módulos</li>
+                    <li><ion-icon name="flask-outline" aria-hidden="true"></ion-icon> Simuladores interativos</li>
+                    <li><ion-icon name="analytics-outline" aria-hidden="true"></ion-icon> Questões do ENEM</li>
+                </ul>
+            </div>
+
+            <div class="modulos-grade">
+                <article class="modulo-card cor-azul" id="cinematica">
+                    <div class="modulo-topo">
+                        <ion-icon name="speedometer" aria-hidden="true"></ion-icon>
+                        <span class="modulo-num">Módulo 01</span>
+                    </div>
+                    <h3>Cinemática</h3>
+                    <p class="modulo-desc">Descreva o movimento sem se preocupar com as causas: posição, velocidade, aceleração e gráficos.</p>
+                    <ul class="modulo-topicos" aria-label="Tópicos de Cinemática">
+                            <li>MRU e MRUV</li>
+                            <li>Queda livre</li>
+                            <li>Lançamento oblíquo</li>
+                    </ul>
+                    <div class="modulo-meta">
+                        <span class="nivel">Básico</span>
+                        <span>12 aulas · 6 h</span>
+                    </div>
+                    <a href="#" class="modulo-btn" aria-label="Começar o módulo Cinemática">Começar módulo <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon></a>
+                </article>
+
+                <article class="modulo-card cor-verde" id="dinamica">
+                    <div class="modulo-topo">
+                        <ion-icon name="barbell" aria-hidden="true"></ion-icon>
+                        <span class="modulo-num">Módulo 02</span>
+                    </div>
+                    <h3>Dinâmica</h3>
+                    <p class="modulo-desc">Entenda por que os corpos se movem: forças, massa e as três leis de Newton.</p>
+                    <ul class="modulo-topicos" aria-label="Tópicos de Dinâmica">
+                            <li>Leis de Newton</li>
+                            <li>Atrito</li>
+                            <li>Plano inclinado</li>
+                    </ul>
+                    <div class="modulo-meta">
+                        <span class="nivel">Básico</span>
+                        <span>14 aulas · 7 h</span>
+                    </div>
+                    <a href="#" class="modulo-btn" aria-label="Começar o módulo Dinâmica">Começar módulo <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon></a>
+                </article>
+
+                <article class="modulo-card cor-amarelo" id="energia">
+                    <div class="modulo-topo">
+                        <ion-icon name="battery-charging" aria-hidden="true"></ion-icon>
+                        <span class="modulo-num">Módulo 03</span>
+                    </div>
+                    <h3>Energia e Trabalho</h3>
+                    <p class="modulo-desc">Veja como a energia se transforma e se conserva em sistemas do dia a dia.</p>
+                    <ul class="modulo-topicos" aria-label="Tópicos de Energia e Trabalho">
+                            <li>Trabalho e potência</li>
+                            <li>Energia cinética e potencial</li>
+                            <li>Conservação da energia</li>
+                    </ul>
+                    <div class="modulo-meta">
+                        <span class="nivel">Intermediário</span>
+                        <span>12 aulas · 6 h</span>
+                    </div>
+                    <a href="#" class="modulo-btn" aria-label="Começar o módulo Energia e Trabalho">Começar módulo <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon></a>
+                </article>
+
+                <article class="modulo-card cor-roxo" id="termologia">
+                    <div class="modulo-topo">
+                        <ion-icon name="thermometer" aria-hidden="true"></ion-icon>
+                        <span class="modulo-num">Módulo 04</span>
+                    </div>
+                    <h3>Termologia</h3>
+                    <p class="modulo-desc">Calor, temperatura e o comportamento térmico de corpos, líquidos e gases.</p>
+                    <ul class="modulo-topicos" aria-label="Tópicos de Termologia">
+                            <li>Calor e temperatura</li>
+                            <li>Dilatação</li>
+                            <li>Termodinâmica</li>
+                    </ul>
+                    <div class="modulo-meta">
+                        <span class="nivel">Intermediário</span>
+                        <span>10 aulas · 5 h</span>
+                    </div>
+                    <a href="#" class="modulo-btn" aria-label="Começar o módulo Termologia">Começar módulo <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon></a>
+                </article>
+
+                <article class="modulo-card cor-ciano" id="ondulatoria">
+                    <div class="modulo-topo">
+                        <ion-icon name="pulse" aria-hidden="true"></ion-icon>
+                        <span class="modulo-num">Módulo 05</span>
+                    </div>
+                    <h3>Ondulatória</h3>
+                    <p class="modulo-desc">Do som ao celular: como as ondas se propagam e transportam energia.</p>
+                    <ul class="modulo-topicos" aria-label="Tópicos de Ondulatória">
+                            <li>Características das ondas</li>
+                            <li>Som</li>
+                            <li>Efeito Doppler</li>
+                    </ul>
+                    <div class="modulo-meta">
+                        <span class="nivel">Intermediário</span>
+                        <span>10 aulas · 5 h</span>
+                    </div>
+                    <a href="#" class="modulo-btn" aria-label="Começar o módulo Ondulatória">Começar módulo <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon></a>
+                </article>
+
+                <article class="modulo-card cor-azul" id="optica">
+                    <div class="modulo-topo">
+                        <ion-icon name="eye" aria-hidden="true"></ion-icon>
+                        <span class="modulo-num">Módulo 06</span>
+                    </div>
+                    <h3>Óptica</h3>
+                    <p class="modulo-desc">A luz e a formação de imagens: reflexão, refração, espelhos e lentes.</p>
+                    <ul class="modulo-topicos" aria-label="Tópicos de Óptica">
+                            <li>Reflexão e refração</li>
+                            <li>Espelhos e lentes</li>
+                            <li>Cores</li>
+                    </ul>
+                    <div class="modulo-meta">
+                        <span class="nivel">Intermediário</span>
+                        <span>11 aulas · 5 h</span>
+                    </div>
+                    <a href="#" class="modulo-btn" aria-label="Começar o módulo Óptica">Começar módulo <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon></a>
+                </article>
+
+                <article class="modulo-card cor-verde" id="eletricidade">
+                    <div class="modulo-topo">
+                        <ion-icon name="flash" aria-hidden="true"></ion-icon>
+                        <span class="modulo-num">Módulo 07</span>
+                    </div>
+                    <h3>Eletricidade</h3>
+                    <p class="modulo-desc">Cargas, campos e circuitos: a base de tudo o que liga na tomada.</p>
+                    <ul class="modulo-topicos" aria-label="Tópicos de Eletricidade">
+                            <li>Campo elétrico</li>
+                            <li>Corrente e resistência</li>
+                            <li>Circuitos elétricos</li>
+                    </ul>
+                    <div class="modulo-meta">
+                        <span class="nivel">Avançado</span>
+                        <span>14 aulas · 7 h</span>
+                    </div>
+                    <a href="#" class="modulo-btn" aria-label="Começar o módulo Eletricidade">Começar módulo <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon></a>
+                </article>
+
+                <article class="modulo-card cor-amarelo" id="eletromagnetismo">
+                    <div class="modulo-topo">
+                        <ion-icon name="magnet" aria-hidden="true"></ion-icon>
+                        <span class="modulo-num">Módulo 08</span>
+                    </div>
+                    <h3>Eletromagnetismo</h3>
+                    <p class="modulo-desc">Elétrico e magnético juntos: ímãs, forças magnéticas e indução.</p>
+                    <ul class="modulo-topicos" aria-label="Tópicos de Eletromagnetismo">
+                            <li>Campo magnético</li>
+                            <li>Força magnética</li>
+                            <li>Indução eletromagnética</li>
+                    </ul>
+                    <div class="modulo-meta">
+                        <span class="nivel">Avançado</span>
+                        <span>12 aulas · 6 h</span>
+                    </div>
+                    <a href="#" class="modulo-btn" aria-label="Começar o módulo Eletromagnetismo">Começar módulo <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon></a>
+                </article>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="explicacao trilha" id="trilha" aria-labelledby="titulo-trilha">
+        <div class="trilha-conteudo">
+            <div class="trilha-topo">
+                <span class="trilha-rotulo">Trilha sugerida</span>
+                <h2 class="part-1" id="titulo-trilha">Uma ordem que <span class="azul">faz sentido.</span></h2>
+                <p>Cada etapa prepara a próxima. Seguindo essa sequência, você chega aos temas mais avançados com a base certa.</p>
+            </div>
+
+            <ol class="trilha-etapas">
+                    <li class="etapa-trilha">
+                        <span class="etapa-num" aria-hidden="true">1</span>
+                        <h3>Fundamentos</h3>
+                        <p class="etapa-mod">Cinemática e Dinâmica</p>
+                        <p>Comece entendendo o movimento e as forças.</p>
+                    </li>
+                    <li class="etapa-trilha">
+                        <span class="etapa-num" aria-hidden="true">2</span>
+                        <h3>Energia e calor</h3>
+                        <p class="etapa-mod">Energia e Trabalho e Termologia</p>
+                        <p>Veja como a energia se transforma.</p>
+                    </li>
+                    <li class="etapa-trilha">
+                        <span class="etapa-num" aria-hidden="true">3</span>
+                        <h3>Ondas e luz</h3>
+                        <p class="etapa-mod">Ondulatória e Óptica</p>
+                        <p>Estude som, luz e formação de imagens.</p>
+                    </li>
+                    <li class="etapa-trilha">
+                        <span class="etapa-num" aria-hidden="true">4</span>
+                        <h3>Eletricidade e magnetismo</h3>
+                        <p class="etapa-mod">Eletricidade e Eletromagnetismo</p>
+                        <p>Feche a trilha com o conteúdo mais avançado.</p>
+                    </li>
+            </ol>
+        </div>
+    </section>
+
+    <footer>
+        <h1 class="titulo-rodape">
+            Explore os <span>módulos</span>
+        </h1>
+
+        <p>Cada assunto é um passo a mais na sua jornada de aprendizado.</p>
+
+        <a href="#escolha" id="rodape"> ver todos os módulos </a> <ion-icon name="arrow-forward-outline"></ion-icon>
+    </footer>
+
+    <script  type = "module"  src = " https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js " ></script> 
+    <script nomodule src = " https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js " ></script>  
+
+    <button id="btnAcess" aria-label="Abrir menu de acessibilidade">
+    <ion-icon name="accessibility"></ion-icon>
+</button>
+
+<div id="painelAcess" hidden>
+    <h3>Acessibilidade</h3>
+    <button id="fonteMais">A+ Aumentar fonte</button>
+    <button id="fonteMenos">A- Diminuir fonte</button>
+    <button id="lerPagina">🔊 Ler página em áudio</button>
+    <button id="contraste">Alto contraste</button>
+    <button id="cinza">Escala de cinza</button>
+    <button id="daltonismo">Modo daltonismo</button>
+    <button id="resetar">Restaurar padrão</button>
+</div>
+
+<script src="./javs.js/acessibilidade.js"></script>
+</body>
+</html>

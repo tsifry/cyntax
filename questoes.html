@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questões | Cyntax</title>
+    <link rel="stylesheet" href="./stylecss/index.css">
+    <link rel="stylesheet" href="./stylecss/acessibilidade.css">
+    <link rel="stylesheet" href="./stylecss/questoes.css">
+    <script src="./javs.js/questoes.js" defer></script>
+</head>
+<body>
+   <header>
+        <nav>
+            <a href="./index.html" class="logo-container">
+                <img src="./img/image.png" alt="Logo da Cyntax" class="logo"></img>
+                <h1 class="logo-text">Cyn<span>tax</span></h1>
+            </a>
+            <div class="links">
+                <a href="./modulo.html"><p>Módulos</p></a>
+                <a href="./jogos.html"><p>Jogos</p></a>
+                <a href="./questoes.html"><p>Questões</p></a>
+                <a href="./ranking.html"><p>Ranking</p></a>
+                <a href="./sobre.html"><p>Sobre</p></a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <span class="descricao">Banco de questões</span>
+            <h1 class="titulopt1">Questões do ENEM <span>comentadas!</span></h1>
+            <p class="paragrafo">Pratique com questões no estilo do ENEM, confira a resposta na hora e entenda cada resolução passo a passo.</p>
+
+            <div class="buttons">
+                <a href="#praticar" class="btnPrinc"> <ion-icon name="rocket-sharp" aria-hidden="true"></ion-icon> Começar a praticar</a>
+                <a href="./modulo.html" class="btnSec"> <ion-icon name="book" aria-hidden="true"></ion-icon> Estudar a teoria</a>
+            </div>
+
+            <div class="img-anime">
+                <img src="./img/Studying-bro.png" alt="Estudante de física">
+            </div>
+        </div>
+
+        <section class="explicacao praticar" id="praticar" aria-labelledby="titulo-praticar">
+            <div class="praticar-conteudo">
+
+                <div class="praticar-topo">
+                    <span class="praticar-rotulo">Pratique agora</span>
+                    <h2 class="part-1" id="titulo-praticar">Responda e <span class="azul">confira na hora.</span></h2>
+                    <p>Escolha um módulo, marque uma alternativa e clique em Responder para ver o resultado e a explicação.</p>
+                </div>
+
+                <div class="filtros" role="group" aria-label="Filtrar questões por módulo">
+                    <button type="button" class="filtro" data-modulo="todas" aria-pressed="true">Todas</button>
+                    <button type="button" class="filtro" data-modulo="cinematica" aria-pressed="false">Cinemática</button>
+                    <button type="button" class="filtro" data-modulo="dinamica" aria-pressed="false">Dinâmica</button>
+                    <button type="button" class="filtro" data-modulo="energia" aria-pressed="false">Energia</button>
+                    <button type="button" class="filtro" data-modulo="termologia" aria-pressed="false">Termologia</button>
+                    <button type="button" class="filtro" data-modulo="ondulatoria" aria-pressed="false">Ondulatória</button>
+                    <button type="button" class="filtro" data-modulo="optica" aria-pressed="false">Óptica</button>
+                    <button type="button" class="filtro" data-modulo="eletricidade" aria-pressed="false">Eletricidade</button>
+                </div>
+
+                <p class="placar" id="placar" role="status" aria-live="polite">Nenhuma questão respondida ainda.</p>
+
+                <div class="lista-questoes">
+
+                    <article class="questao" data-modulo="cinematica" data-correta="b">
+                        <div class="questao-topo">
+                            <span class="questao-modulo">Cinemática</span>
+                            <span class="questao-nivel">Básico</span>
+                        </div>
+                        <h3>Questão 1</h3>
+                        <p class="enunciado">Um carro percorre 150 km em 2 h, com velocidade média constante. Qual é essa velocidade média, em m/s?</p>
+                        <fieldset class="alternativas">
+                            <legend class="sr-only">Alternativas da questão 1</legend>
+                            <label class="alternativa"><input type="radio" name="q1" value="a"> <span class="letra">A</span> 15 m/s</label>
+                            <label class="alternativa"><input type="radio" name="q1" value="b"> <span class="letra">B</span> Cerca de 20,8 m/s</label>
+                            <label class="alternativa"><input type="radio" name="q1" value="c"> <span class="letra">C</span> 75 m/s</label>
+                            <label class="alternativa"><input type="radio" name="q1" value="d"> <span class="letra">D</span> Cerca de 41,7 m/s</label>
+                        </fieldset>
+                        <button type="button" class="btn-responder">Responder</button>
+                        <p class="resultado" role="status" aria-live="polite"></p>
+                        <div class="comentario" hidden>
+                            <strong>Explicação:</strong> a velocidade média é v = Δs / Δt = 150 km / 2 h = 75 km/h. Para passar de km/h para m/s, divide-se por 3,6: 75 / 3,6 ≈ 20,8 m/s.
+                        </div>
+                    </article>
+
+                    <article class="questao" data-modulo="dinamica" data-correta="b">
+                        <div class="questao-topo">
+                            <span class="questao-modulo">Dinâmica</span>
+                            <span class="questao-nivel">Básico</span>
+                        </div>
+                        <h3>Questão 2</h3>
+                        <p class="enunciado">Um bloco de 5 kg é puxado por uma força resultante de 20 N sobre uma superfície sem atrito. Qual é a aceleração do bloco?</p>
+                        <fieldset class="alternativas">
+                            <legend class="sr-only">Alternativas da questão 2</legend>
+                            <label class="alternativa"><input type="radio" name="q2" value="a"> <span class="letra">A</span> 0,25 m/s²</label>
+                            <label class="alternativa"><input type="radio" name="q2" value="b"> <span class="letra">B</span> 4 m/s²</label>
+                            <label class="alternativa"><input type="radio" name="q2" value="c"> <span class="letra">C</span> 15 m/s²</label>
+                            <label class="alternativa"><input type="radio" name="q2" value="d"> <span class="letra">D</span> 100 m/s²</label>
+                        </fieldset>
+                        <button type="button" class="btn-responder">Responder</button>
+                        <p class="resultado" role="status" aria-live="polite"></p>
+                        <div class="comentario" hidden>
+                            <strong>Explicação:</strong> pela segunda lei de Newton, F = m · a. Logo, a = F / m = 20 N / 5 kg = 4 m/s².
+                        </div>
+                    </article>
+
+                    <article class="questao" data-modulo="energia" data-correta="c">
+                        <div class="questao-topo">
+                            <span class="questao-modulo">Energia</span>
+                            <span class="questao-nivel">Básico</span>
+                        </div>
+                        <h3>Questão 3</h3>
+                        <p class="enunciado">Um objeto de 2 kg está a 10 m de altura em relação ao solo. Considerando g = 10 m/s², qual é a sua energia potencial gravitacional?</p>
+                        <fieldset class="alternativas">
+                            <legend class="sr-only">Alternativas da questão 3</legend>
+                            <label class="alternativa"><input type="radio" name="q3" value="a"> <span class="letra">A</span> 20 J</label>
+                            <label class="alternativa"><input type="radio" name="q3" value="b"> <span class="letra">B</span> 100 J</label>
+                            <label class="alternativa"><input type="radio" name="q3" value="c"> <span class="letra">C</span> 200 J</label>
+                            <label class="alternativa"><input type="radio" name="q3" value="d"> <span class="letra">D</span> 2000 J</label>
+                        </fieldset>
+                        <button type="button" class="btn-responder">Responder</button>
+                        <p class="resultado" role="status" aria-live="polite"></p>
+                        <div class="comentario" hidden>
+                            <strong>Explicação:</strong> a energia potencial gravitacional é Ep = m · g · h = 2 · 10 · 10 = 200 J.
+                        </div>
+                    </article>
+
+                    <article class="questao" data-modulo="termologia" data-correta="c">
+                        <div class="questao-topo">
+                            <span class="questao-modulo">Termologia</span>
+                            <span class="questao-nivel">Básico</span>
+                        </div>
+                        <h3>Questão 4</h3>
+                        <p class="enunciado">Em um dia de clima agradável, a temperatura é de 27 °C. Qual é essa temperatura na escala Kelvin?</p>
+                        <fieldset class="alternativas">
+                            <legend class="sr-only">Alternativas da questão 4</legend>
+                            <label class="alternativa"><input type="radio" name="q4" value="a"> <span class="letra">A</span> 246 K</label>
+                            <label class="alternativa"><input type="radio" name="q4" value="b"> <span class="letra">B</span> 273 K</label>
+                            <label class="alternativa"><input type="radio" name="q4" value="c"> <span class="letra">C</span> 300 K</label>
+                            <label class="alternativa"><input type="radio" name="q4" value="d"> <span class="letra">D</span> 327 K</label>
+                        </fieldset>
+                        <button type="button" class="btn-responder">Responder</button>
+                        <p class="resultado" role="status" aria-live="polite"></p>
+                        <div class="comentario" hidden>
+                            <strong>Explicação:</strong> a conversão é feita somando 273: K = °C + 273 = 27 + 273 = 300 K.
+                        </div>
+                    </article>
+
+                    <article class="questao" data-modulo="ondulatoria" data-correta="b">
+                        <div class="questao-topo">
+                            <span class="questao-modulo">Ondulatória</span>
+                            <span class="questao-nivel">Intermediário</span>
+                        </div>
+                        <h3>Questão 5</h3>
+                        <p class="enunciado">Uma onda sonora de frequência 340 Hz se propaga no ar com velocidade de 340 m/s. Qual é o comprimento de onda dessa onda?</p>
+                        <fieldset class="alternativas">
+                            <legend class="sr-only">Alternativas da questão 5</legend>
+                            <label class="alternativa"><input type="radio" name="q5" value="a"> <span class="letra">A</span> 0,5 m</label>
+                            <label class="alternativa"><input type="radio" name="q5" value="b"> <span class="letra">B</span> 1 m</label>
+                            <label class="alternativa"><input type="radio" name="q5" value="c"> <span class="letra">C</span> 2 m</label>
+                            <label class="alternativa"><input type="radio" name="q5" value="d"> <span class="letra">D</span> 340 m</label>
+                        </fieldset>
+                        <button type="button" class="btn-responder">Responder</button>
+                        <p class="resultado" role="status" aria-live="polite"></p>
+                        <div class="comentario" hidden>
+                            <strong>Explicação:</strong> na equação fundamental da ondulatória, v = λ · f. Então λ = v / f = 340 / 340 = 1 m.
+                        </div>
+                    </article>
+
+                    <article class="questao" data-modulo="optica" data-correta="c">
+                        <div class="questao-topo">
+                            <span class="questao-modulo">Óptica</span>
+                            <span class="questao-nivel">Intermediário</span>
+                        </div>
+                        <h3>Questão 6</h3>
+                        <p class="enunciado">A luz do Sol viaja a 3 × 10⁸ m/s até a Terra, que está a cerca de 1,5 × 10¹¹ m de distância. Quanto tempo a luz leva para chegar até nós?</p>
+                        <fieldset class="alternativas">
+                            <legend class="sr-only">Alternativas da questão 6</legend>
+                            <label class="alternativa"><input type="radio" name="q6" value="a"> <span class="letra">A</span> Cerca de 5 s</label>
+                            <label class="alternativa"><input type="radio" name="q6" value="b"> <span class="letra">B</span> Cerca de 50 s</label>
+                            <label class="alternativa"><input type="radio" name="q6" value="c"> <span class="letra">C</span> Cerca de 500 s</label>
+                            <label class="alternativa"><input type="radio" name="q6" value="d"> <span class="letra">D</span> Cerca de 5000 s</label>
+                        </fieldset>
+                        <button type="button" class="btn-responder">Responder</button>
+                        <p class="resultado" role="status" aria-live="polite"></p>
+                        <div class="comentario" hidden>
+                            <strong>Explicação:</strong> como a velocidade é constante, t = d / v = (1,5 × 10¹¹) / (3 × 10⁸) = 500 s, ou seja, cerca de 8 minutos e 20 segundos.
+                        </div>
+                    </article>
+
+                    <article class="questao" data-modulo="eletricidade" data-correta="b">
+                        <div class="questao-topo">
+                            <span class="questao-modulo">Eletricidade</span>
+                            <span class="questao-nivel">Intermediário</span>
+                        </div>
+                        <h3>Questão 7</h3>
+                        <p class="enunciado">Um chuveiro elétrico de potência 5500 W é ligado em uma tomada de 220 V. Qual é a corrente elétrica que passa por ele?</p>
+                        <fieldset class="alternativas">
+                            <legend class="sr-only">Alternativas da questão 7</legend>
+                            <label class="alternativa"><input type="radio" name="q7" value="a"> <span class="letra">A</span> 12,5 A</label>
+                            <label class="alternativa"><input type="radio" name="q7" value="b"> <span class="letra">B</span> 25 A</label>
+                            <label class="alternativa"><input type="radio" name="q7" value="c"> <span class="letra">C</span> 50 A</label>
+                            <label class="alternativa"><input type="radio" name="q7" value="d"> <span class="letra">D</span> 1 210 000 A</label>
+                        </fieldset>
+                        <button type="button" class="btn-responder">Responder</button>
+                        <p class="resultado" role="status" aria-live="polite"></p>
+                        <div class="comentario" hidden>
+                            <strong>Explicação:</strong> a potência elétrica é P = U · i. Logo, i = P / U = 5500 / 220 = 25 A.
+                        </div>
+                    </article>
+
+                </div>
+
+                <p class="refazer">
+                    <button type="button" class="btn-refazer" id="refazer">Refazer todas as questões</button>
+                </p>
+
+            </div>
+        </section>
+
+        <section class="beneficios dicas" id="dicas" aria-labelledby="titulo-dicas">
+            <div class="dicas-conteudo">
+
+                <div class="dicas-cabecalho">
+                    <h2 id="titulo-dicas">Dicas para o ENEM</h2>
+                    <p>Pequenos hábitos que ajudam a acertar mais questões de física.</p>
+                </div>
+
+                <div class="dicas-grade">
+                    <article class="dica-card">
+                        <ion-icon name="eye" aria-hidden="true"></ion-icon>
+                        <h3>Leia até o fim</h3>
+                        <p>Identifique com calma o que a questão pede antes de começar a calcular.</p>
+                    </article>
+
+                    <article class="dica-card">
+                        <ion-icon name="pencil" aria-hidden="true"></ion-icon>
+                        <h3>Anote os dados</h3>
+                        <p>Separe o que é dado e o que é incógnita. Isso deixa o caminho mais claro.</p>
+                    </article>
+
+                    <article class="dica-card">
+                        <ion-icon name="calculator" aria-hidden="true"></ion-icon>
+                        <h3>Cuide das unidades</h3>
+                        <p>Converta tudo para o mesmo sistema, como km/h para m/s, antes de usar a fórmula.</p>
+                    </article>
+
+                    <article class="dica-card">
+                        <ion-icon name="checkmark-done" aria-hidden="true"></ion-icon>
+                        <h3>Confira o resultado</h3>
+                        <p>Veja se o valor faz sentido. Uma pessoa correndo a 500 m/s, por exemplo, não faz.</p>
+                    </article>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <h1 class="titulo-rodape">
+            Explore os <span>módulos</span>
+        </h1>
+
+        <p>Cada assunto é um passo a mais na sua jornada de aprendizado.</p>
+
+        <a href="./modulo.html" id="rodape"> ver todos os módulos </a> <ion-icon name="arrow-forward-outline"></ion-icon>
+    </footer>
+
+    <script  type = "module"  src = " https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js " ></script> 
+    <script nomodule src = " https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js " ></script>  
+
+    <button id="btnAcess" aria-label="Abrir menu de acessibilidade">
+    <ion-icon name="accessibility"></ion-icon>
+</button>
+
+<div id="painelAcess" hidden>
+    <h3>Acessibilidade</h3>
+    <button id="fonteMais">A+ Aumentar fonte</button>
+    <button id="fonteMenos">A- Diminuir fonte</button>
+    <button id="lerPagina">🔊 Ler página em áudio</button>
+    <button id="contraste">Alto contraste</button>
+    <button id="cinza">Escala de cinza</button>
+    <button id="daltonismo">Modo daltonismo</button>
+    <button id="resetar">Restaurar padrão</button>
+</div>
+
+<script src="./javs.js/acessibilidade.js"></script>
+</body>
+</html>

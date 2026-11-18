@@ -1,0 +1,300 @@
+.container.auth {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 64px;
+    min-height: calc(100vh - 72px);
+    padding: 64px 80px;
+}
+
+.container.auth .titulopt1 {
+    width: 100%;
+    max-width: none;
+}
+
+.container.auth .paragrafo {
+    width: 100%;
+    max-width: 560px;
+}
+
+/* ---------- Lista de vantagens ---------- */
+.auth-vantagens {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    list-style: none;
+}
+
+.auth-vantagens li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--cor-fonte-clara);
+    font-size: 16px;
+}
+
+.auth-vantagens ion-icon {
+    flex-shrink: 0;
+    color: var(--cor-ciano);
+    font-size: 24px;
+}
+
+/* ---------- Cartão do formulário ---------- */
+.auth-card {
+    width: 100%;
+    max-width: 520px;
+    justify-self: center;
+    padding: 36px;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    background:
+        linear-gradient(#071329, #071329) padding-box,
+        linear-gradient(90deg, #526EF8, #38BDF8) border-box;
+    box-shadow: 10px 8px 8px rgba(0, 0, 0, 0.5);
+    color: var(--cor-fonte-clara);
+}
+
+.auth-card h2 {
+    margin-bottom: 6px;
+    color: var(--cor-fonte-branca);
+    font-size: 30px;
+}
+
+.auth-nota {
+    margin-bottom: 22px;
+    color: var(--cor-fonte-simulacao);
+    font-size: 13px;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+}
+
+/* ---------- Campos ---------- */
+.auth-campo {
+    margin-bottom: 18px;
+}
+
+.auth-campo label {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--cor-fonte-branca);
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.auth-campo input,
+.auth-campo select {
+    width: 100%;
+    padding: 13px 14px;
+    border: 2px solid var(--cor-borda);
+    border-radius: 12px;
+    background-color: var(--cor-fundo-cards);
+    color: var(--cor-fonte-branca);
+    font-family: inherit;
+    font-size: 16px;
+}
+
+.auth-campo input::placeholder {
+    color: #8FA3CC;
+}
+
+.auth-campo input:focus,
+.auth-campo select:focus {
+    border-color: var(--cor-ciano);
+    outline: 3px solid rgba(56, 189, 248, 0.35);
+    outline-offset: 1px;
+}
+
+.auth-campo [aria-invalid="true"] {
+    border-color: #FF6B6B;
+}
+
+.auth-ajuda {
+    display: block;
+    margin-top: 6px;
+    color: var(--cor-fonte-simulacao);
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.auth-erro {
+    display: block;
+    color: #FF9A9A;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 1.4;
+}
+
+.auth-erro:not(:empty) {
+    margin-top: 6px;
+}
+
+/* ---------- Senha com botão de mostrar/ocultar ---------- */
+.senha-box {
+    position: relative;
+}
+
+.senha-box input {
+    padding-right: 52px;
+}
+
+.btn-olho {
+    position: absolute;
+    top: 50%;
+    right: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 0;
+    border-radius: 10px;
+    background: none;
+    color: var(--cor-fonte-clara);
+    font-size: 22px;
+    cursor: pointer;
+    transform: translateY(-50%);
+}
+
+.btn-olho:hover {
+    color: var(--cor-ciano);
+}
+
+/* ---------- Força da senha ---------- */
+.forca {
+    display: flex;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.forca span {
+    flex: 1;
+    height: 6px;
+    border-radius: 6px;
+    background-color: var(--cor-card);
+    transition: background-color 0.2s;
+}
+
+.forca[data-nivel="1"] span:nth-child(1) { background-color: #FF6B6B; }
+.forca[data-nivel="2"] span:nth-child(-n+2) { background-color: #FFB52E; }
+.forca[data-nivel="3"] span { background-color: #18B97D; }
+
+/* ---------- Termos ---------- */
+.auth-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 6px;
+}
+
+.auth-check input {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    accent-color: #38BDF8;
+}
+
+.auth-check label {
+    color: var(--cor-fonte-clara);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.auth-check + .auth-erro {
+    margin-bottom: 14px;
+}
+
+/* ---------- Botão e links ---------- */
+.auth-btn {
+    width: 100%;
+    margin-top: 10px;
+    padding: 15px 26px;
+    border: 0;
+    border-radius: 30px;
+    background: linear-gradient(90deg, #526EF8, #38BDF8);
+    color: var(--cor-fonte-branca);
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.auth-btn:hover {
+    opacity: 0.8;
+}
+
+.auth-card a {
+    color: #7FD4FF;
+    text-decoration: underline;
+}
+
+.auth-card a:hover {
+    color: var(--cor-fonte-branca);
+}
+
+.auth-esqueci {
+    margin: -6px 0 6px;
+    font-size: 14px;
+    text-align: right;
+}
+
+.auth-status {
+    min-height: 1.5em;
+    margin-top: 14px;
+    color: #5EE6B0;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+.auth-status.erro {
+    color: #FF9A9A;
+}
+
+.auth-troca {
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid var(--cor-borda);
+    font-size: 14px;
+    text-align: center;
+}
+
+/* ---------- Foco visível ---------- */
+.auth-card button:focus-visible,
+.auth-card a:focus-visible,
+.auth-check input:focus-visible {
+    outline: 3px solid var(--cor-ciano);
+    outline-offset: 3px;
+}
+
+/* ---------- Responsivo (só a parte do formulário) ---------- */
+@media (max-width: 900px) {
+    .container.auth {
+        grid-template-columns: 1fr;
+        gap: 36px;
+        min-height: 0;
+        padding: 40px 20px;
+    }
+
+    .auth-card {
+        padding: 24px 20px;
+    }
+}
+
+/* ---------- Menos movimento ---------- */
+@media (prefers-reduced-motion: reduce) {
+    .auth-card *,
+    .auth-card *::before,
+    .auth-card *::after {
+        transition: none !important;
+        animation: none !important;
+    }
+}

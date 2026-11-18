@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranking | Cyntax</title>
+    <link rel="stylesheet" href="./stylecss/index.css">
+    <script src="./javs.js/index.js " defer></script>
+    <link rel="stylesheet" href="./stylecss/acessibilidade.css">
+    <link rel="stylesheet" href="./stylecss/ranking.css">
+</head>
+<body>
+   <header>
+        <nav>
+            <a href="./main.html" class="logo-container">
+                <img src="./img/image.png" alt="Logo da Cyntax" class="logo"></img>
+                <h1 class="logo-text">Cyn<span>tax</span></h1>
+            </a>
+            <div class="links">
+                <a href="./modulo.html"><p>Módulos</p></a>
+                <a href="./jogos.html"><p>Jogos</p></a>
+                <a href="./questoes.html"><p>Questões</p></a>
+                <a href="./ranking.html"><p>Ranking</p></a>
+                <a href="./sobre.html"><p>Sobre</p></a>
+            </div>
+
+            <div class="busca">
+                <input type="text" id="campoBusca" placeholder="Pesquisar...">
+                <button type="button" id="botaoBusca"><ion-icon name="search-outline"></ion-icon></button>
+            </div>
+
+            <div class="identificacao">
+                <a href="#" class="entrar">Entrar</a>
+                <a href="./cadastro.html" class="cadastro">Cadastrar</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <span class="descricao">Competição saudável</span>
+        <h1 class="titulopt1">Ranking <span>dos estudantes!</span></h1>
+        <p class="paragrafo">Resolva questões, conclua módulos e jogue para ganhar pontos e subir de posição. No ranking aparece só o nome de usuário, então seus dados pessoais ficam protegidos.</p>
+
+        <div class="buttons">
+            <a href="#sua-posicao" class="btnPrinc"> <ion-icon name="trophy"></ion-icon> Ver minha posição</a>
+            <a href="./jogos.html" class="btnSec"> <ion-icon name="game-controller"></ion-icon> Ganhar pontos</a>
+        </div>
+
+        <div class="img-anime">
+            <img src="./img/Studying-bro.png" alt="Estudante de física">
+        </div>
+    </div>
+
+    <section class="beneficios ranking" id="top" aria-labelledby="titulo-ranking">
+        <div class="ranking-conteudo">
+
+            <div class="ranking-cabecalho">
+                <h2 id="titulo-ranking">Top 10 geral</h2>
+                <p>Os estudantes com mais pontos na plataforma.</p>
+            </div>
+
+            <ol class="podio" aria-label="Três primeiros colocados">
+                <li class="podio-item podio-1">
+                    <ion-icon name="trophy" aria-hidden="true"></ion-icon>
+                    <span class="podio-pos">1º lugar</span>
+                    <span class="avatar avatar-grande" aria-hidden="true">QA</span>
+                    <strong class="podio-nome">quantum_ana</strong>
+                    <span class="podio-nivel">Nível 14 · 8 de 8 módulos</span>
+                    <span class="podio-pontos">9.820 <small>pontos</small></span>
+                </li>
+                <li class="podio-item podio-2">
+                    <ion-icon name="trophy" aria-hidden="true"></ion-icon>
+                    <span class="podio-pos">2º lugar</span>
+                    <span class="avatar avatar-grande" aria-hidden="true">VL</span>
+                    <strong class="podio-nome">vetor_lucas</strong>
+                    <span class="podio-nivel">Nível 14 · 8 de 8 módulos</span>
+                    <span class="podio-pontos">9.415 <small>pontos</small></span>
+                </li>
+                <li class="podio-item podio-3">
+                    <ion-icon name="trophy" aria-hidden="true"></ion-icon>
+                    <span class="podio-pos">3º lugar</span>
+                    <span class="avatar avatar-grande" aria-hidden="true">MJ</span>
+                    <strong class="podio-nome">maria_joule</strong>
+                    <span class="podio-nivel">Nível 13 · 7 de 8 módulos</span>
+                    <span class="podio-pontos">8.960 <small>pontos</small></span>
+                </li>
+            </ol>
+
+            <div class="tabela-caixa">
+                <div class="tabela-rolagem">
+                    <table class="tabela">
+                        <caption class="sr-only">Ranking do 4º ao 10º lugar</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col" class="col-pos">Posição</th>
+                                <th scope="col">Estudante</th>
+                                <th scope="col">Nível</th>
+                                <th scope="col">Módulos concluídos</th>
+                                <th scope="col" class="col-pontos">Pontos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row" class="col-pos">4º</th>
+                            <td><span class="aluno"><span class="avatar" aria-hidden="true">PM</span>pedro_mru</span></td>
+                            <td>Nível 12</td>
+                            <td>7 de 8</td>
+                            <td class="col-pontos">8.420</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="col-pos">5º</th>
+                            <td><span class="aluno"><span class="avatar" aria-hidden="true">IO</span>isa_ondas</span></td>
+                            <td>Nível 12</td>
+                            <td>6 de 8</td>
+                            <td class="col-pontos">7.980</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="col-pos">6º</th>
+                            <td><span class="aluno"><span class="avatar" aria-hidden="true">GW</span>gui_watt</span></td>
+                            <td>Nível 11</td>
+                            <td>6 de 8</td>
+                            <td class="col-pontos">7.510</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="col-pos">7º</th>
+                            <td><span class="aluno"><span class="avatar" aria-hidden="true">BL</span>bia_lente</span></td>
+                            <td>Nível 10</td>
+                            <td>5 de 8</td>
+                            <td class="col-pontos">6.890</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="col-pos">8º</th>
+                            <td><span class="aluno"><span class="avatar" aria-hidden="true">CN</span>caio_newton</span></td>
+                            <td>Nível 10</td>
+                            <td>5 de 8</td>
+                            <td class="col-pontos">6.340</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="col-pos">9º</th>
+                            <td><span class="aluno"><span class="avatar" aria-hidden="true">LC</span>lari_campo</span></td>
+                            <td>Nível 9</td>
+                            <td>4 de 8</td>
+                            <td class="col-pontos">5.870</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="col-pos">10º</th>
+                            <td><span class="aluno"><span class="avatar" aria-hidden="true">TM</span>theo_massa</span></td>
+                            <td>Nível 8</td>
+                            <td>4 de 8</td>
+                            <td class="col-pontos">5.320</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <p class="ranking-nota">Dados fictícios de demonstração.</p>
+
+            <div class="sua-posicao" id="sua-posicao">
+                <ion-icon name="person-circle-outline" aria-hidden="true"></ion-icon>
+                <div class="sua-posicao-texto">
+                    <h3>Qual é a sua posição?</h3>
+                    <p>Entre na sua conta para ver seus pontos e quanto falta para subir no ranking.</p>
+                </div>
+                <div class="sua-posicao-botoes">
+                    <a href="./login.html" class="rk-btn rk-btn-contorno">Entrar</a>
+                    <a href="./cadastro.html" class="rk-btn rk-btn-cheio">Cadastrar</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="explicacao pontos" id="como-pontuar" aria-labelledby="titulo-pontos">
+        <div class="pontos-conteudo">
+            <div class="pontos-topo">
+                <span class="pontos-rotulo">Pontuação</span>
+                <h2 class="part-1" id="titulo-pontos">Como ganhar <span class="azul">pontos.</span></h2>
+                <p>Estudar de verdade rende mais do que qualquer atalho. Veja o que conta no ranking e desbloqueie personalizações exclusivas ao subir de nível.</p>
+            </div>
+
+            <ul class="pontuacao">
+                <li class="pontuacao-item">
+                    <ion-icon name="help-circle" aria-hidden="true"></ion-icon>
+                    <h3>Quiz e jogos</h3>
+                    <p>Até 50 pontos por partida nos jogos da plataforma.</p>
+                </li>
+                <li class="pontuacao-item">
+                    <ion-icon name="analytics" aria-hidden="true"></ion-icon>
+                    <h3>Questões do ENEM</h3>
+                    <p>10 pontos por questão resolvida corretamente.</p>
+                </li>
+                <li class="pontuacao-item">
+                    <ion-icon name="book" aria-hidden="true"></ion-icon>
+                    <h3>Módulos concluídos</h3>
+                    <p>100 pontos ao finalizar cada módulo de estudo.</p>
+                </li>
+                <li class="pontuacao-item">
+                    <ion-icon name="flame" aria-hidden="true"></ion-icon>
+                    <h3>Sequência de estudos</h3>
+                    <p>Bônus por estudar em dias seguidos.</p>
+                </li>
+            </ul>
+            <p class="ranking-nota-clara">Valores de exemplo para a demonstração.</p>
+        </div>
+    </section>
+
+    <footer>
+        <h1 class="titulo-rodape">
+            Explore os <span>módulos</span>
+        </h1>
+
+        <p>Cada assunto é um passo a mais na sua jornada de aprendizado.</p>
+
+        <a href="./modulo.html" id="rodape"> ver todos os módulos </a> <ion-icon name="arrow-forward-outline"></ion-icon>
+    </footer>
+
+    <script  type = "module"  src = " https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js " ></script> 
+    <script nomodule src = " https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js " ></script>  
+
+    <button id="btnAcess" aria-label="Abrir menu de acessibilidade">
+    <ion-icon name="accessibility"></ion-icon>
+</button>
+
+<div id="painelAcess" hidden>
+    <h3>Acessibilidade</h3>
+    <button id="fonteMais">A+ Aumentar fonte</button>
+    <button id="fonteMenos">A- Diminuir fonte</button>
+    <button id="lerPagina">🔊 Ler página em áudio</button>
+    <button id="contraste">Alto contraste</button>
+    <button id="cinza">Escala de cinza</button>
+    <button id="daltonismo">Modo daltonismo</button>
+    <button id="resetar">Restaurar padrão</button>
+</div>
+
+<script src="./javs.js/acessibilidade.js"></script>
+</body>
+</html>

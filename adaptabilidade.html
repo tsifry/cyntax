@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acessibilidade | Cyntax</title>
+    <link rel="stylesheet" href="./stylecss/index.css">
+    <link rel="stylesheet" href="./stylecss/acessibilidade.css">
+    <link rel="stylesheet" href="./stylecss/adaptabilidade.css">
+</head>
+<body>
+   <header>
+        <nav>
+            <a href="./index.html" class="logo-container">
+                <img src="./img/image.png" alt="Logo da Cyntax" class="logo"></img>
+                <h1 class="logo-text">Cyn<span>tax</span></h1>
+            </a>
+            <div class="links">
+                <a href="./modulo.html"><p>Módulos</p></a>
+                <a href="./jogos.html"><p>Jogos</p></a>
+                <a href="./questoes.html"><p>Questões</p></a>
+                <a href="./ranking.html"><p>Ranking</p></a>
+                <a href="./sobre.html"><p>Sobre</p></a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <span class="descricao">Acessibilidade</span>
+            <h1 class="titulopt1">Estudar física <span>sem barreiras!</span></h1>
+            <p class="paragrafo">O Cyntax foi pensado para ser usado por todas as pessoas, com ou sem deficiência. Conheça os recursos de adaptação disponíveis e veja como ativá-los em poucos cliques.</p>
+
+            <div class="buttons">
+                <a href="#recursos" class="btnPrinc"> <ion-icon name="accessibility" aria-hidden="true"></ion-icon> Ver os recursos</a>
+                <a href="./modulo.html" class="btnSec"> <ion-icon name="book" aria-hidden="true"></ion-icon> Ir para os módulos</a>
+            </div>
+
+            <div class="img-anime">
+                <img src="./img/Studying-bro.png" alt="Estudante de física">
+            </div>
+        </div>
+
+        <section class="beneficios recursos" id="recursos" aria-labelledby="titulo-recursos">
+            <div class="recursos-conteudo">
+
+                <div class="recursos-cabecalho">
+                    <h2 id="titulo-recursos">Recursos de adaptação</h2>
+                    <p>Todos ficam no menu de acessibilidade, o botão redondo no canto inferior direito da tela.</p>
+                </div>
+
+                <div class="recursos-grade">
+                    <article class="recurso-card">
+                        <ion-icon name="text" aria-hidden="true"></ion-icon>
+                        <h3>Tamanho da fonte</h3>
+                        <p class="recurso-desc">Aumente ou diminua o texto de toda a página com as opções A+ e A-.</p>
+                        <p class="recurso-para"><span>Indicado para</span> Baixa visão e cansaço visual</p>
+                    </article>
+
+                    <article class="recurso-card">
+                        <ion-icon name="contrast" aria-hidden="true"></ion-icon>
+                        <h3>Alto contraste</h3>
+                        <p class="recurso-desc">Reforça a diferença entre claro e escuro para facilitar a leitura.</p>
+                        <p class="recurso-para"><span>Indicado para</span> Baixa visão</p>
+                    </article>
+
+                    <article class="recurso-card">
+                        <ion-icon name="color-filter" aria-hidden="true"></ion-icon>
+                        <h3>Escala de cinza</h3>
+                        <p class="recurso-desc">Tira as cores da página e deixa tudo em tons de cinza.</p>
+                        <p class="recurso-para"><span>Indicado para</span> Quem prefere uma página sem cores</p>
+                    </article>
+
+                    <article class="recurso-card">
+                        <ion-icon name="eye" aria-hidden="true"></ion-icon>
+                        <h3>Modo daltonismo</h3>
+                        <p class="recurso-desc">Ajusta as cores da página para ajudar a diferenciar os tons.</p>
+                        <p class="recurso-para"><span>Indicado para</span> Daltonismo</p>
+                    </article>
+
+                    <article class="recurso-card">
+                        <ion-icon name="volume-high" aria-hidden="true"></ion-icon>
+                        <h3>Leitura em áudio</h3>
+                        <p class="recurso-desc">Lê a página em voz alta, ou só o trecho que você selecionar.</p>
+                        <p class="recurso-para"><span>Indicado para</span> Deficiência visual e dificuldade de leitura</p>
+                    </article>
+
+                    <article class="recurso-card">
+                        <ion-icon name="keypad" aria-hidden="true"></ion-icon>
+                        <h3>Navegação pelo teclado</h3>
+                        <p class="recurso-desc">Links, botões e opções funcionam sem mouse, usando Tab, Enter e Esc.</p>
+                        <p class="recurso-para"><span>Indicado para</span> Deficiência motora e quem não usa mouse</p>
+                    </article>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="explicacao ativar" id="como-ativar" aria-labelledby="titulo-ativar">
+            <div class="ativar-conteudo">
+
+                <div class="ativar-topo">
+                    <span class="ativar-rotulo">Como ativar</span>
+                    <h2 class="part-1" id="titulo-ativar">Três passos para <span class="azul">ajustar o site.</span></h2>
+                    <p>Não precisa instalar nada: os ajustes são aplicados na hora, direto na página.</p>
+                </div>
+
+                <ol class="ativar-etapas">
+                    <li class="ativar-etapa">
+                        <span class="ativar-num" aria-hidden="true">1</span>
+                        <h3>Abra o menu</h3>
+                        <p>Clique no botão redondo com o símbolo de acessibilidade, no canto inferior direito.</p>
+                    </li>
+                    <li class="ativar-etapa">
+                        <span class="ativar-num" aria-hidden="true">2</span>
+                        <h3>Escolha o recurso</h3>
+                        <p>Clique em uma opção da lista e o ajuste é aplicado. Para desativar, clique de novo.</p>
+                    </li>
+                    <li class="ativar-etapa">
+                        <span class="ativar-num" aria-hidden="true">3</span>
+                        <h3>Restaure quando quiser</h3>
+                        <p>A opção Restaurar padrão desfaz todos os ajustes de uma só vez.</p>
+                    </li>
+                </ol>
+
+                <p class="ativar-aviso">Os ajustes valem para a página que está aberta. Ao mudar de página, escolha as opções novamente.</p>
+
+                <div class="atalhos">
+                    <h3>Atalhos de teclado</h3>
+                    <ul class="atalhos-lista">
+                        <li><kbd>Tab</kbd> avança para o próximo link ou botão</li>
+                        <li><kbd>Shift</kbd> + <kbd>Tab</kbd> volta para o item anterior</li>
+                        <li><kbd>Enter</kbd> ou <kbd>Espaço</kbd> ativa o item selecionado</li>
+                        <li><kbd>Esc</kbd> fecha o menu de acessibilidade</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <h1 class="titulo-rodape">
+            Explore os <span>módulos</span>
+        </h1>
+
+        <p>Cada assunto é um passo a mais na sua jornada de aprendizado.</p>
+
+        <a href="./modulo.html" id="rodape"> ver todos os módulos </a> <ion-icon name="arrow-forward-outline"></ion-icon>
+    </footer>
+
+    <script  type = "module"  src = " https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js " ></script> 
+    <script nomodule src = " https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js " ></script>  
+
+    <button id="btnAcess" aria-label="Abrir menu de acessibilidade">
+    <ion-icon name="accessibility"></ion-icon>
+</button>
+
+<div id="painelAcess" hidden>
+    <h3>Acessibilidade</h3>
+    <button id="fonteMais">A+ Aumentar fonte</button>
+    <button id="fonteMenos">A- Diminuir fonte</button>
+    <button id="lerPagina">🔊 Ler página em áudio</button>
+    <button id="contraste">Alto contraste</button>
+    <button id="cinza">Escala de cinza</button>
+    <button id="daltonismo">Modo daltonismo</button>
+    <button id="resetar">Restaurar padrão</button>
+</div>
+
+<script src="./javs.js/acessibilidade.js"></script>
+</body>
+</html>

@@ -1,0 +1,300 @@
+.modulos {
+    color: var(--cor-fonte-clara);
+}
+ 
+.modulos-conteudo {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+ 
+.modulos-cabecalho {
+    margin-bottom: 36px;
+    text-align: center;
+}
+ 
+.modulos-cabecalho h2 {
+    margin-bottom: 10px;
+    color: var(--cor-fonte-branca);
+    font-size: 38px;
+}
+ 
+.modulos-cabecalho p {
+    color: var(--cor-fonte-clara);
+    font-size: 17px;
+}
+ 
+.modulos-resumo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+ 
+.modulos-resumo li {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    background-color: var(--cor-card);
+    color: var(--cor-fonte-clara);
+    font-size: 14px;
+}
+ 
+.modulos-resumo ion-icon {
+    color: var(--cor-ciano);
+    font-size: 18px;
+}
+ 
+/* ---------- Grade de cards ---------- */
+.modulos-grade {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+ 
+.modulo-card {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    background:
+        linear-gradient(#071329, #071329) padding-box,
+        linear-gradient(90deg, #526EF8, #38BDF8) border-box;
+    box-shadow: 10px 8px 8px rgba(0, 0, 0, 0.5);
+    scroll-margin-top: 90px;
+    transition: transform 0.2s;
+}
+ 
+.modulo-card:hover {
+    transform: translateY(-4px);
+}
+ 
+/* cor de destaque de cada card (usa as variáveis do index.css) */
+.cor-azul    { --destaque: var(--cor-destaque-azul); }
+.cor-verde   { --destaque: var(--cor-destaque-verde); }
+.cor-amarelo { --destaque: var(--cor-destaque-amarelo); }
+.cor-roxo    { --destaque: var(--cor-destaque-roxo); }
+.cor-ciano   { --destaque: var(--cor-destaque-ciano); }
+ 
+.modulo-topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+}
+ 
+.modulo-topo ion-icon {
+    font-size: 42px;
+    color: var(--destaque);
+}
+ 
+.modulo-num {
+    color: var(--cor-fonte-simulacao);
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+ 
+.modulo-card h3 {
+    margin-bottom: 8px;
+    color: var(--cor-fonte-branca);
+    font-size: 21px;
+}
+ 
+.modulo-desc {
+    margin-bottom: 14px;
+    color: var(--cor-fonte-clara);
+    font-size: 14px;
+    line-height: 1.5;
+}
+ 
+.modulo-topicos {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 18px;
+}
+ 
+.modulo-topicos li {
+    position: relative;
+    padding-left: 18px;
+    color: var(--cor-fonte-clara);
+    font-size: 13px;
+}
+ 
+.modulo-topicos li::before {
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--destaque);
+}
+ 
+.modulo-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: auto;
+    margin-bottom: 16px;
+    color: var(--cor-fonte-simulacao);
+    font-size: 13px;
+}
+ 
+.nivel {
+    padding: 3px 12px;
+    border-radius: 20px;
+    background-color: rgba(62, 103, 180, 0.35);
+    color: #A9DFFF;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+ 
+.modulo-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border-radius: 30px;
+    background: linear-gradient(90deg, #526EF8, #38BDF8);
+    color: var(--cor-fonte-branca);
+    font-size: 14px;
+    font-weight: bold;
+    transition: opacity 0.2s;
+}
+ 
+.modulo-btn:hover {
+    opacity: 0.8;
+}
+ 
+.modulos a:focus-visible {
+    outline: 3px solid var(--cor-ciano);
+    outline-offset: 3px;
+}
+ 
+.explicacao.trilha {
+    display: block;
+    margin-left: 0;
+    padding: 70px 80px;
+}
+ 
+.trilha-conteudo {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+ 
+.trilha-topo {
+    max-width: 640px;
+    margin: 0 auto 40px;
+    text-align: center;
+}
+ 
+.trilha-rotulo {
+    color: #2B57D6;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+ 
+.trilha-topo > p {
+    color: var(--cor-fonte-secundaria);
+    font-size: 17px;
+    line-height: 1.55;
+}
+ 
+.trilha-etapas {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+ 
+.etapa-trilha {
+    padding: 24px;
+    border: 1px solid #DCE6FA;
+    border-radius: 20px;
+    background-color: var(--cor-fundo-claro-2);
+}
+ 
+.etapa-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    margin-bottom: 12px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #526EF8, #38BDF8);
+    color: var(--cor-fonte-branca);
+    font-size: 17px;
+    font-weight: bold;
+}
+ 
+.etapa-trilha h3 {
+    margin-bottom: 4px;
+    color: var(--cor-fonte-escura);
+    font-size: 18px;
+}
+ 
+.etapa-mod {
+    margin-bottom: 8px;
+    color: #2B57D6;
+    font-size: 13px;
+    font-weight: bold;
+}
+ 
+.etapa-trilha p:last-child {
+    margin-bottom: 0;
+    color: var(--cor-fonte-secundaria);
+    font-size: 14px;
+    line-height: 1.5;
+}
+ 
+/* ---------- Responsivo (só a parte dos módulos) ---------- */
+@media (max-width: 1100px) {
+    .modulos-grade,
+    .trilha-etapas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+ 
+@media (max-width: 700px) {
+    .beneficios.modulos {
+        padding: 40px 20px;
+    }
+ 
+    .explicacao.trilha {
+        padding: 40px 20px;
+    }
+ 
+    .modulos-grade,
+    .trilha-etapas {
+        grid-template-columns: 1fr;
+    }
+ 
+    .modulos-cabecalho h2 {
+        font-size: 30px;
+    }
+}
+ 
+/* ---------- Menos movimento ---------- */
+@media (prefers-reduced-motion: reduce) {
+    .modulos *,
+    .modulos *::before,
+    .modulos *::after {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+ 

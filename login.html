@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar | Cyntax</title>
+    <link rel="stylesheet" href="./stylecss/index.css">
+    <script src="./javs.js/index.js " defer></script>
+    <script src="./javs.js/auth.js" defer></script>
+    <link rel="stylesheet" href="./stylecss/acessibilidade.css">
+    <link rel="stylesheet" href="./stylecss/auth.css">
+</head>
+<body>
+   <header>
+        <nav>
+            <a href="./index.html" class="logo-container">
+                <img src="./img/image.png" alt="Logo da Cyntax" class="logo"></img>
+                <h1 class="logo-text">Cyn<span>tax</span></h1>
+            </a>
+            <div class="links">
+                <a href="./modulo.html"><p>Módulos</p></a>
+                <a href="./jogos.html"><p>Jogos</p></a>
+                <a href="./questoes.html"><p>Questões</p></a>
+                <a href="./ranking.html"><p>Ranking</p></a>
+                <a href="./sobre.html"><p>Sobre</p></a>
+            </div>
+
+            <div class="busca">
+                <input type="text" id="campoBusca" placeholder="Pesquisar...">
+                <button type="button" id="botaoBusca"><ion-icon name="search-outline"></ion-icon></button>
+            </div>
+
+            <div class="identificacao">
+                <a href="./login.html" class="entrar">Entrar</a>
+                <a href="./cadastro.html" class="cadastro">Cadastrar</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container auth">
+        <div class="auth-texto">
+            <span class="descricao">Área do estudante</span>
+            <h1 class="titulopt1">Bem-vindo de volta, <span>continue de onde parou!</span></h1>
+            <p class="paragrafo">Entre para retomar seus módulos, ver sua posição no ranking e continuar batendo seus recordes nos jogos.</p>
+
+            <ul class="auth-vantagens">
+                <li><ion-icon name="checkmark-circle" aria-hidden="true"></ion-icon> Retome o módulo do ponto em que parou</li>
+                <li><ion-icon name="checkmark-circle" aria-hidden="true"></ion-icon> Veja sua posição no ranking</li>
+                <li><ion-icon name="checkmark-circle" aria-hidden="true"></ion-icon> Continue treinando com as questões do ENEM</li>
+            </ul>
+        </div>
+
+        <form class="auth-card" id="formLogin" novalidate aria-labelledby="titulo-form">
+            <h2 id="titulo-form">Entrar</h2>
+            <p class="auth-nota">Campos com <span aria-hidden="true">*</span><span class="sr-only">asterisco</span> são obrigatórios.</p>
+
+                <div class="auth-campo">
+                    <label for="email">E-mail <span aria-hidden="true">*</span></label>
+                    <input type="email" id="email" name="email" autocomplete="email" required aria-describedby="erro-email">
+                    <span class="auth-erro" id="erro-email"></span>
+                </div>
+                <div class="auth-campo">
+                    <label for="senha">Senha <span aria-hidden="true">*</span></label>
+                    <div class="senha-box">
+                        <input type="password" id="senha" name="senha" autocomplete="current-password" required aria-describedby="erro-senha">
+                        <button type="button" class="btn-olho" data-alvo="senha" aria-label="Mostrar senha" aria-pressed="false"><ion-icon name="eye-outline" aria-hidden="true"></ion-icon></button>
+                    </div>
+                    <span class="auth-erro" id="erro-senha"></span>
+                </div>
+
+                <p class="auth-esqueci"><a href="#">Esqueci minha senha</a></p>
+
+                <button type="submit" class="auth-btn">Entrar</button>
+                <p class="auth-status" id="statusForm" role="status" aria-live="polite"></p>
+
+                <p class="auth-troca">Ainda não tem conta? <a href="./cadastro.html">Cadastre-se grátis</a></p>
+        </form>
+    </div>
+
+    <footer>
+        <h1 class="titulo-rodape">
+            Explore os <span>módulos</span>
+        </h1>
+
+        <p>Cada assunto é um passo a mais na sua jornada de aprendizado.</p>
+
+        <a href="./modulo.html" id="rodape"> ver todos os módulos </a> <ion-icon name="arrow-forward-outline"></ion-icon>
+    </footer>
+
+    <script  type = "module"  src = " https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js " ></script> 
+    <script nomodule src = " https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js " ></script>  
+
+    <button id="btnAcess" aria-label="Abrir menu de acessibilidade">
+    <ion-icon name="accessibility"></ion-icon>
+</button>
+
+<div id="painelAcess" hidden>
+    <h3>Acessibilidade</h3>
+    <button id="fonteMais">A+ Aumentar fonte</button>
+    <button id="fonteMenos">A- Diminuir fonte</button>
+    <button id="lerPagina">🔊 Ler página em áudio</button>
+    <button id="contraste">Alto contraste</button>
+    <button id="cinza">Escala de cinza</button>
+    <button id="daltonismo">Modo daltonismo</button>
+    <button id="resetar">Restaurar padrão</button>
+</div>
+
+<script src="./javs.js/acessibilidade.js"></script>
+</body>
+</html>
