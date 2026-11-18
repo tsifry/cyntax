@@ -2,7 +2,7 @@ from conexao import conecta
 from criatabelas import criatabelas
 from tabelas import TABELAS
 from read import read
-from create import inserir
+from create import create
 from editar import editar
 from deletar import deletar
 
@@ -30,7 +30,7 @@ def main():
                     read(conexao, tabela)
                 case 2:
                     tabela = list(TABELAS.keys())[escolheTabela() - 1]
-                    inserir(conexao, tabela)
+                    create(conexao, tabela)
                 case 3:
                     tabela = list(TABELAS.keys())[escolheTabela() - 1]
                     editar(conexao, tabela)
