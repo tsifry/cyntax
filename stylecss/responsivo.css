@@ -1,0 +1,94 @@
+/* ===== Base: nada estoura a tela ===== */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { overflow-x: hidden; }
+img, svg, video { max-width: 100%; height: auto; }
+
+/* ===== Tablet (até 992px) ===== */
+@media (max-width: 992px) {
+  header nav { flex-wrap: wrap; justify-content: center; gap: 12px; padding: 12px 20px; }
+  .links { flex-wrap: wrap; justify-content: center; gap: 8px 18px; }
+  .busca { order: 3; width: 100%; max-width: 420px; }
+  .busca input { width: 100%; }
+
+  .container { flex-direction: column; text-align: center; padding: 40px 24px; gap: 24px; }
+  .titulopt1 { font-size: clamp(2rem, 6vw, 3rem); }
+  .buttons { justify-content: center; flex-wrap: wrap; }
+  .img-anime { margin: 0 auto; }
+  .img-anime img { max-width: 360px; width: 100%; }
+
+  .cards, .modulos-grade, .recursos-grade, .sobre-grade, .sobre-grade-4,
+  .dicas-grade, .pontuacao, .principios-lista, .trilha-etapas, .ativar-etapas {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+  }
+
+  .explicacao { flex-direction: column; padding: 40px 24px; gap: 28px; }
+  .explicacao .visual img { width: 100%; }
+  .lista { grid-template-columns: repeat(2, 1fr); }
+  .quadro-azul { width: 100%; }
+
+  .podio { flex-wrap: wrap; justify-content: center; gap: 16px; }
+  .seletor { display: grid; grid-template-columns: 1fr; gap: 12px; }
+  .auth { flex-direction: column; }
+  .auth-card { width: 100%; max-width: 520px; margin: 0 auto; }
+}
+
+/* ===== Celular (até 600px) ===== */
+@media (max-width: 600px) {
+  header nav { padding: 10px 14px; }
+  .logo-text { font-size: 1.4rem; }
+  .links a p { font-size: .95rem; margin: 0; }
+  .identificacao { display: flex; gap: 8px; width: 100%; justify-content: center; }
+
+  .container { padding: 28px 16px; }
+  .paragrafo { font-size: 1rem; }
+  .buttons { flex-direction: column; width: 100%; }
+  .buttons a { width: 100%; justify-content: center; text-align: center; }
+
+  .cards, .modulos-grade, .recursos-grade, .sobre-grade, .sobre-grade-4,
+  .dicas-grade, .pontuacao, .principios-lista, .trilha-etapas, .ativar-etapas,
+  .lista { grid-template-columns: 1fr; }
+
+  section { padding-left: 16px; padding-right: 16px; }
+  .quadro-azul { padding: 20px 16px; }
+
+  /* Tabela do ranking rola dentro da própria caixa */
+  .tabela-rolagem { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .tabela { min-width: 520px; }
+  .sua-posicao { flex-direction: column; text-align: center; gap: 12px; }
+  .sua-posicao-botoes { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+
+  /* Jogos */
+  .memoria-grade { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .lanc-controles { display: flex; flex-direction: column; gap: 12px; }
+  .lanc-controles input[type="range"] { width: 100%; }
+  .jogo-btn { width: 100%; }
+  .jogo-stats { flex-wrap: wrap; gap: 8px; }
+
+  /* Questões */
+  .filtros { flex-wrap: wrap; gap: 8px; }
+  .questao-topo { flex-wrap: wrap; gap: 6px; }
+  .alternativa { padding: 12px; }
+
+  /* Cadastro e login */
+  .auth-card { padding: 20px 16px; }
+  .auth-campo input, .auth-campo select { font-size: 16px; } /* evita zoom no iPhone */
+
+  footer { padding: 32px 16px; text-align: center; }
+  .titulo-rodape { font-size: 1.6rem; }
+
+  /* Botão e painel de acessibilidade */
+  #painelAcess { right: 12px; left: 12px; bottom: 76px; max-width: none; width: auto; max-height: 70vh; overflow-y: auto; }
+  #btnAcess { right: 12px; bottom: 12px; }
+}
+
+/* ===== Telas muito pequenas (até 380px) ===== */
+@media (max-width: 380px) {
+  .memoria-grade { grid-template-columns: repeat(2, 1fr); }
+  .titulopt1 { font-size: 1.7rem; }
+}
+
+/* ===== Respeita quem reduz animações ===== */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
