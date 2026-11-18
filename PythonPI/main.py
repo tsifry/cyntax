@@ -8,38 +8,42 @@ from deletar import deletar
 
 def main():
     conexao = conecta()
-    criatabelas(conexao)
-    while True:
-        print('-' * 30)
-        print("Sistema Cyntax".center(30))
-        print('-' * 30)
-        print("O que Deseja Fazer?")
-        print("[1] Consultar\n[2] Adicionar\n[3] Editar\n[4] Deletar\n[5] Sair")
-
+    try:
+        criatabelas(conexao)
         while True:
-            resp = input(' ')
-            if resp.isnumeric():
-                resp = int(resp)
-                break
-            print('Opção inválida! Digite um número existente no menu.')
+            print('-' * 30)
+            print("Sistema Cyntax".center(30))
+            print('-' * 30)
+            print("O que Deseja Fazer?")
+            print("[1] Consultar\n[2] Adicionar\n[3] Editar\n[4] Deletar\n[5] Sair")
 
-        match resp:
-            case 1:
-                tabela = list(TABELAS.keys())[escolheTabela() - 1]
-                read(conexao, tabela)
-            case 2:
-                tabela = list(TABELAS.keys())[escolheTabela() - 1]
-                inserir(conexao, tabela)
-            case 3:
-                tabela = list(TABELAS.keys())[escolheTabela() - 1]
-                editar(conexao, tabela)
-            case 4:
-                tabela = list(TABELAS.keys())[escolheTabela() - 1]
-                deletar(conexao, tabela)
-            case 5:
-                conexao.close()
-                print('Encerrando o sistema. . .')
-                break
+            while True:
+                resp = input(' ')
+                if resp.isnumeric():
+                    resp = int(resp)
+                    break
+                print('Opção inválida! Digite um número existente no menu.')
+
+            match resp:
+                case 1:
+                    tabela = list(TABELAS.keys())[escolheTabela() - 1]
+                    read(conexao, tabela)
+                case 2:
+                    tabela = list(TABELAS.keys())[escolheTabela() - 1]
+                    inserir(conexao, tabela)
+                case 3:
+                    tabela = list(TABELAS.keys())[escolheTabela() - 1]
+                    editar(conexao, tabela)
+                case 4:
+                    tabela = list(TABELAS.keys())[escolheTabela() - 1]
+                    deletar(conexao, tabela)
+                case 5:
+                    conexao.close()
+                    print('Encerrando o sistema. . .')
+                    break
+    finally:
+        if conexao.is_connected():
+            conexao.close
 
 #valida se o que o usuario está fornecendo é um número inteiro e se corresponde ao número de uma tabela.
 def escolheTabela() -> int:

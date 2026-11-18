@@ -54,15 +54,16 @@ def editar(conexao, tabela):
         elif tabela == 'ProgressoProblemas':
             id_usuario = int(input('Digite o ID do usuario: '))
             id_problema = int(input('Digite o ID do problema: '))
-            tempo_gasto = int(input("Tempo gasto adicional (segundos):" ))
+            tentativas = int(input('Quantas tentativas adicionar: '))
+            tempo_gasto = int(input("Tempo gasto adicional (segundos): "))
             finalizado = True if input('O problema foi finalizado agora? [S/N]: ').upper() == 'S' else False
 
             sql = """UPDATE ProgressoProblemas 
-                     SET TENT_TOTAIS = TENT_TOTAIS + 1, 
+                     SET TENT_TOTAIS = TENT_TOTAIS + %s, 
                          TEMPO_GASTO = TEMPO_GASTO + %s, 
                          FINALIZADO = %s 
                      WHERE ID_USUARIO=%s AND ID_PROBLEMA=%s"""
-            cursor.execute(sql, (tempo_gasto, finalizado, id_usuario, id_problema))
+            cursor.execute(sql, (tentativas, tempo_gasto, finalizado, id_usuario, id_problema))
 
         elif tabela == 'ProgressoJogos':
             id_usuario = int(input("Digite o ID_USUARIO: "))
