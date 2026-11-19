@@ -23,7 +23,7 @@ TABELAS = {
     "Problemas": [
                 ("ID", "AUTO"),
                 ("ID_MODULO", "NOT_NULL"),#fk
-                ("DESCRICAO", "NOT_NULL")
+                ("DESCRICAO", "NOT_NULL"),
                 ("RESPOSTA", "NOT_NULL")
             ],
 

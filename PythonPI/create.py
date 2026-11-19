@@ -76,6 +76,8 @@ def escrever_csv(tabela: str) -> None:
 
 def carregar_csv_no_mysql(conexao, tabela: str, ) -> None:
     arquivo = tabela + '.csv'
+    tabelafinal = 'g07_' + tabela#coloquei assim para manter a estrutura usando o tabela, mas fazer
+#                                 o commit na tabela com esse nome como o banin pediu.
 
     if not os.path.exists(arquivo):
         print(f'arquivo {arquivo} não encontrado.')
@@ -99,7 +101,7 @@ def carregar_csv_no_mysql(conexao, tabela: str, ) -> None:
 
                 recebevalores = ", ".join(["%s"] * len(colunas))#monta quantos $s aparecerão no comando sql
                 
-                sql = f'''INSERT IGNORE INTO `{tabela}`
+                sql = f'''INSERT IGNORE INTO `{tabelafinal}`
                     ({colunaslimpa})
                     VALUES ({recebevalores})
                 '''
@@ -116,8 +118,10 @@ def carregar_csv_no_mysql(conexao, tabela: str, ) -> None:
                     else:
                         valoresfinais.append(item)
 
+                print(sql, valoresfinais)
+                input()
                 cursor = conexao.cursor()
-                cursor.execute(sql, valores)
+                cursor.execute(sql, valoresfinais)
 
     except Exception as e:
         print('[Exceção ao carregar CSV no MySQL]')
