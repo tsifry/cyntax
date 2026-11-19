@@ -16,7 +16,7 @@ def editar(conexao, tabela):
             foto = input('Nova FOTO_PERFIL: ')
             assinante = True if input('Assinante? [S/N]: ').upper() == 'S' else False
 
-            sql = "UPDATE Usuarios SET NOME=%s, EMAIL=%s, FOTO_PERFIL=%s, ASSINANTE=%s WHERE ID=%s"
+            sql = "UPDATE g07_Usuarios SET NOME=%s, EMAIL=%s, FOTO_PERFIL=%s, ASSINANTE=%s WHERE ID=%s"
             cursor.execute(sql, (nome, email, foto if foto else None, assinante, id_usuario))
 
         elif tabela == 'Autenticacao':
@@ -24,7 +24,7 @@ def editar(conexao, tabela):
             senha = input('Digite a nova SENHA: ')
             senha_hash = hashlib.sha256(senha.encode('utf-8')).hexdigest()
 
-            sql = "UPDATE Autenticacao SET SENHA=%s WHERE ID_USUARIO=%s"
+            sql = "UPDATE g07_Autenticacao SET SENHA=%s WHERE ID_USUARIO=%s"
             cursor.execute(sql, (senha_hash, id_usuario))
 
         elif tabela == 'Modulos':
@@ -33,22 +33,23 @@ def editar(conexao, tabela):
             dificuldade = input("Nova DIFICULDADE: ")
             assinante = True if input("Exclusivo para assinantes? (S/N): ").upper() == 'S' else False
 
-            sql = "UPDATE Modulos SET NOME=%s, DIFICULDADE=%s, ASSINANTE=%s WHERE ID=%s"
+            sql = "UPDATE g07_Modulos SET NOME=%s, DIFICULDADE=%s, ASSINANTE=%s WHERE ID=%s"
             cursor.execute(sql, (nome, dificuldade, assinante, id_modulo))
 
         elif tabela == 'Problemas':
             id_problema = int(input('Digite o ID do problema: '))
             descricao = input('Nova DESCRIÇÃO: ')
+            resposta = input('Nova RESPOSTA: ')
 
-            sql = "UPDATE Problemas SET DESCRICAO=%s WHERE ID=%s"
-            cursor.execute(sql, (descricao, id_problema))
+            sql = "UPDATE g07_Problemas SET DESCRICAO=%s, RESPOSTA=%s WHERE ID=%s"
+            cursor.execute(sql, (descricao, resposta, id_problema))
 
         elif tabela == 'Jogos':
             id_jogo = int(input('Digite o ID do Jogo: '))
             descricao = input('Nova DESCRICAO: ')
             sandbox = True if input('É SandBox? [S/N]: ').upper() == 'S' else False
 
-            sql = "UPDATE Jogos SET DESCRICAO=%s, SANDBOX=%s WHERE ID=%s"
+            sql = "UPDATE g07_Jogos SET DESCRICAO=%s, SANDBOX=%s WHERE ID=%s"
             cursor.execute(sql, (descricao, sandbox, id_jogo))
 
         elif tabela == 'ProgressoProblemas':
@@ -58,7 +59,7 @@ def editar(conexao, tabela):
             tempo_gasto = int(input("Tempo gasto adicional (segundos): "))
             finalizado = True if input('O problema foi finalizado agora? [S/N]: ').upper() == 'S' else False
 
-            sql = """UPDATE ProgressoProblemas 
+            sql = """UPDATE g07_ProgressoProblemas 
                      SET TENT_TOTAIS = TENT_TOTAIS + %s, 
                          TEMPO_GASTO = TEMPO_GASTO + %s, 
                          FINALIZADO = %s 
@@ -71,7 +72,7 @@ def editar(conexao, tabela):
             highscore = int(input('Pontuação do Highscore: '))
             tempo_jogado = int(input('Tempo jogado adicional (segundos): '))
             
-            sql = """UPDATE ProgressoJogos 
+            sql = """UPDATE g07_ProgressoJogos 
                      SET JOGADOS = JOGADOS + 1, 
                          HIGHSCORE = HIGHSCORE + %s, 
                          TEMPO_JOGADO = TEMPO_JOGADO + %s 
@@ -83,7 +84,7 @@ def editar(conexao, tabela):
             temporada = int(input('Temporada: '))
             pontos = int(input('Pontos a somar na pontuação: '))
 
-            sql = "UPDATE Ranking SET PONTUACAO = PONTUACAO + %s WHERE ID_USUARIO=%s AND TEMPORADA=%s"
+            sql = "UPDATE g07_Ranking SET PONTUACAO = PONTUACAO + %s WHERE ID_USUARIO=%s AND TEMPORADA=%s"
             cursor.execute(sql, (pontos, id_usuario, temporada))
 
         else:
