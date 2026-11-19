@@ -150,13 +150,14 @@ def read(conexao, tabela: str) -> None:
 
 #monta e tenta executar o comando sql.
 def consulta(conexao, tabela: str, colunas: list = None, filtro: dict =None) -> list | None:
+    tabelafinal = "g07_" + tabela
     #verifica se a consulta deve ser feita através de colunas especificas ou se deve pegar todos os campos (*).
     if colunas is None:
         selecionados = "*"
     else:
         selecionados = ", ".join(f"`{campo}`" for campo in colunas)
 
-    sql = f"SELECT {selecionados} FROM `{tabela}`"#monta primeira parte do comando sql de consulta.
+    sql = f"SELECT {selecionados} FROM `{tabelafinal}`"#monta primeira parte do comando sql de consulta.
 
     if filtro is not None:#filtro serve para buscar registros na tabela por algum valor em específico.
         if not isinstance(filtro, dict):
