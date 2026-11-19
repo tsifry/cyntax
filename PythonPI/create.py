@@ -118,8 +118,6 @@ def carregar_csv_no_mysql(conexao, tabela: str, ) -> None:
                     else:
                         valoresfinais.append(item)
 
-                print(sql, valoresfinais)
-                input()
                 cursor = conexao.cursor()
                 cursor.execute(sql, valoresfinais)
 

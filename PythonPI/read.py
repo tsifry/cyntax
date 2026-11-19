@@ -188,9 +188,6 @@ def consulta(conexao, tabela: str, colunas: list = None, filtro: dict =None) -> 
                 break
         valores.append(limit)
 
-    print(sql, tuple(valores))
-    input('PARE')
-
     try:
         cursor = conexao.cursor(dictionary = True)
         cursor.execute(sql, tuple(valores))
