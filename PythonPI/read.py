@@ -179,12 +179,12 @@ def consulta(conexao, tabela: str, colunas: list = None, filtro: dict =None) -> 
         sql += " WHERE " + " AND ".join(condicoes)
 
     if tabela == "Ranking":#se for a tabela ranking os valores devem ser mostrados do maior para o menor.
-        sql += f" ORDER BY `TEMPORADA` DESC"
+        sql += f" ORDER BY `COLOCACAO` DESC"
 
         sql += " LIMIT %s"#adiciona a parte do limit no comando sql.
         while True:
             limit = int(input('LIMIT: '))
-            if isinstance(limit, int):
+            if limit.isnumeric():
                 break
         valores.append(limit)
 
