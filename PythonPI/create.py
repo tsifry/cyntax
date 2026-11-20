@@ -90,7 +90,10 @@ def carregar_csv_no_mysql(conexao, tabela: str, ) -> None:
 #aqui a logica usada foi linhas impares guardarem os nomes das colunas que serão usadas e as pares os valores.
         with open(arquivo, mode='r', newline='', encoding='utf-8') as arq:
             linhas = list(csv.reader(arq))
-            print(len(linhas))
+            
+            if len(linhas) % 2 != 0:
+                print("Algum registro não informou suas colunas ou seus valores. Corrija para retornar.")
+                return
 
             for i in range(0, len(linhas), 2):
                 valoresfinais.clear()
@@ -130,4 +133,3 @@ def carregar_csv_no_mysql(conexao, tabela: str, ) -> None:
     finally:
         if cursor is not None:
             cursor.close()
-
